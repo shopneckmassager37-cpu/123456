@@ -7,7 +7,7 @@ type FormState = {
   message: string
 }
 
-type Status = 'idle' | 'loading' | 'success'
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const SUBJECTS = [
   'Web Development Project',
@@ -16,6 +16,8 @@ const SUBJECTS = [
   'Other',
 ]
 
+const API_ENDPOINT =  + API_URL + 
+
 export default function Contact() {
   const [form, setForm]     = useState<FormState>({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState<Status>('idle')
@@ -23,11 +25,11 @@ export default function Contact() {
 
   const validate = (): boolean => {
     const next: Partial<FormState> = {}
-    if (!form.name.trim())  next.name    = 'Name is required.'
-    if (!form.email.trim()) next.email   = 'Email is required.'
+    if (!form.name.trim())    next.name    = 'Name is required.'
+    if (!form.email.trim())   next.email   = 'Email is required.'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-                            next.email   = 'Enter a valid email address.'
-    if (!form.subject)      next.subject = 'Please select a subject.'
+                              next.email   = 'Enter a valid email address.'
+    if (!form.subject)        next.subject = 'Please select a subject.'
     if (!form.message.trim()) next.message = 'Message is required.'
     setErrors(next)
     return Object.keys(next).length === 0
@@ -41,15 +43,25 @@ export default function Contact() {
     }
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!validate()) return
     setStatus('loading')
-    // Wire to your backend / email service here
-    setTimeout(() => {
-      setStatus('success')
-      setForm({ name: '', email: '', subject: '', message: '' })
-    }, 1200)
+    try {
+      const res = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', subject: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputBase   = 'w-full bg-[#0A0A0A] border rounded-xl px-4 py-3 text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-1'
@@ -62,13 +74,9 @@ export default function Contact() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-6">
-
-        {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-            Get In Touch
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-tight">
+          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Get In Touch</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-5 leading-tight">
             Let's build something<br />
             <span className="text-accent">great together.</span>
           </h2>
@@ -78,7 +86,6 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Form card */}
         {status === 'success' ? (
           <div className="flex flex-col items-center justify-center text-center rounded-2xl border border-accent/20 bg-surface p-14 gap-5">
             <div className="w-14 h-14 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center">
@@ -87,96 +94,53 @@ export default function Contact() {
               </svg>
             </div>
             <h3 className="font-display text-2xl font-bold text-white">Message Sent!</h3>
-            <p className="text-white/45 text-sm leading-relaxed max-w-xs">
-              Thanks for reaching out. I'll get back to you within 24 hours.
-            </p>
-            <button
-              onClick={() => setStatus('idle')}
-              className="mt-2 px-6 py-2.5 border border-white/10 text-white/60 text-sm rounded-full hover:border-white/25 hover:text-white transition-all"
-            >
+            <p className="text-white/45 text-sm leading-relaxed max-w-xs">Thanks for reaching out. I'll get back to you within 24 hours.</p>
+            <button onClick={() => setStatus('idle')} className="mt-2 px-6 py-2.5 border border-white/10 text-white/60 text-sm rounded-full hover:border-white/25 hover:text-white transition-all">
               Send another message
             </button>
           </div>
         ) : (
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            className="rounded-2xl border border-white/8 bg-surface p-8 md:p-10 flex flex-col gap-5"
-          >
-            {/* Name + Email */}
+          <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-white/8 bg-surface p-8 md:p-10 flex flex-col gap-5">
+            {status === 'error' && (
+              <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+                Something went wrong. Please try again.
+              </div>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="Daniel"
-                  className={errors.name ? inputError : inputNormal}
-                />
+                <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Daniel" className={errors.name ? inputError : inputNormal} />
                 {errors.name && <p className="mt-1.5 text-red-400 text-xs">{errors.name}</p>}
               </div>
               <div>
                 <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="you@example.com"
-                  className={errors.email ? inputError : inputNormal}
-                />
+                <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="daniel@example.com" className={errors.email ? inputError : inputNormal} />
                 {errors.email && <p className="mt-1.5 text-red-400 text-xs">{errors.email}</p>}
               </div>
             </div>
-
-            {/* Subject */}
             <div>
               <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Subject</label>
-              <select
-                name="subject"
-                value={form.subject}
-                onChange={handleChange}
-                className={`${errors.subject ? inputError : inputNormal} appearance-none`}
-              >
-                <option value="" disabled>Select a topic…</option>
-                {SUBJECTS.map((s) => (
-                  <option key={s} value={s} className="bg-surface text-white">{s}</option>
-                ))}
+              <select name="subject" value={form.subject} onChange={handleChange} className={errors.subject ? inputError : inputNormal}>
+                <option value="">Select a subject…</option>
+                {SUBJECTS.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
               {errors.subject && <p className="mt-1.5 text-red-400 text-xs">{errors.subject}</p>}
             </div>
-
-            {/* Message */}
             <div>
               <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Message</label>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                rows={5}
-                placeholder="Tell me about your project…"
-                className={`${errors.message ? inputError : inputNormal} resize-none`}
-              />
+              <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell me about your project…" rows={5} className={`${errors.message ? inputError : inputNormal} resize-none`} />
               {errors.message && <p className="mt-1.5 text-red-400 text-xs">{errors.message}</p>}
             </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="w-full py-3.5 bg-accent text-[#0A0A0A] font-semibold rounded-xl hover:bg-accent-dim hover:shadow-[0_0_24px_rgba(212,168,83,0.3)] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
-            >
+            <button type="submit" disabled={status === 'loading'} className="w-full py-3.5 bg-accent text-[#0A0A0A] text-sm font-semibold rounded-full hover:bg-accent-dim hover:shadow-[0_0_28px_rgba(212,168,83,0.3)] active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
               {status === 'loading' ? (
                 <>
-                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
                   Sending…
                 </>
-              ) : 'Send Message'}
+              ) : 'Send Message →'}
             </button>
           </form>
         )}
