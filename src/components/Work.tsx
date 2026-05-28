@@ -4,35 +4,28 @@ export default function Work() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       <div className="absolute -top-20 right-0 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6">
-
-        {/* Header */}
+      <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             Selected Work
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
-            Products I've Built
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">
+            Products I\'ve Built
           </h2>
           <p className="text-white/40 text-lg max-w-xl leading-relaxed">
             Real projects, shipped to production. From concept to launch.
           </p>
         </div>
 
-        {/* Chefaleh — Featured Card */}
         <article className="group relative rounded-2xl border border-accent/20 bg-gradient-to-br from-surface to-[#0A0A0A] overflow-hidden hover:border-accent/35 transition-all duration-500">
-
-          {/* Ambient glow */}
           <div className="absolute -top-24 -right-24 w-72 h-72 bg-accent/8 rounded-full blur-[90px] pointer-events-none" />
 
-          {/* Screenshot */}
           <div className="relative overflow-hidden bg-s3 w-full" style={{ aspectRatio: '16/8' }}>
             <img
-              src="/chefaleh.png"
-              alt="Chefaleh catering website — homepage showing the hero section with warm luxury aesthetic"
+              src="https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png"
+              alt="Chefaleh catering website homepage"
               className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
             />
-            {/* Top overlay bar */}
             <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#111]/60 to-transparent flex items-center px-4 gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
@@ -41,7 +34,6 @@ export default function Work() {
                 <span className="text-white/40 text-[9px] font-mono truncate">chefaleh.com</span>
               </span>
             </div>
-            {/* Category badge */}
             <div className="absolute top-10 left-4">
               <span className="px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm bg-accent/20 text-accent border border-accent/30">
                 Web Development
@@ -49,10 +41,9 @@ export default function Work() {
             </div>
           </div>
 
-          {/* Content */}
-          <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="p-8 md:p-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div className="max-w-2xl">
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+              <h3 className="font-display text-2xl md:text-4xl font-bold text-white mb-3 leading-tight">
                 Chefaleh — Miami Catering
               </h3>
               <p className="text-white/50 text-base leading-relaxed mb-6">
@@ -61,18 +52,13 @@ export default function Work() {
                 high-value clients — built from design to live deployment.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['React', 'Tailwind CSS', 'Luxury Brand', 'Responsive', 'Live'].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full border border-white/10 text-white/40 text-xs font-medium"
-                  >
+                {[\'React\', \'Tailwind CSS\', \'Luxury Brand\', \'Responsive\', \'Live\'].map((tag) => (
+                  <span key={tag} className="px-3 py-1 rounded-full border border-white/10 text-white/40 text-xs font-medium">
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
-
-            {/* CTA */}
             <div className="flex-shrink-0">
               <a
                 href="https://www.chefaleh.com"
@@ -88,7 +74,6 @@ export default function Work() {
             </div>
           </div>
         </article>
-
       </div>
     </section>
   )
