@@ -3,7 +3,7 @@ import { useState } from 'react'
 const faqs = [
   {
     q: 'How long does a typical project take?',
-    a: 'Most landing pages and small sites take 1–2 weeks. Full web apps and MVPs usually take 3–6 weeks depending on scope. I\'ll give you an honest timeline after our first call.',
+    a: 'Most projects are completed within 1–2 weeks. I\'ll give you an honest timeline after our first call.',
   },
   {
     q: 'Do you work with startups and small businesses?',
