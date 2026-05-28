@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: 'Work',      id: 'work'      },
   { label: 'Expertise', id: 'expertise' },
+  { label: 'Work',      id: 'work'      },
   { label: 'Contact',   id: 'contact'   },
 ]
 
@@ -11,8 +11,8 @@ function scrollTo(id: string) {
 }
 
 export default function Navbar() {
-  const [scrolled,  setScrolled]  = useState(false)
-  const [menuOpen,  setMenuOpen]  = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -20,7 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -45,13 +44,20 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleNavClick('hero')}
-            className="font-display text-lg font-bold tracking-tight text-white hover:opacity-80 transition-opacity"
             aria-label="dandev home"
+            className="flex items-center gap-2.5 hover:opacity-85 transition-opacity"
           >
-            dan<span className="text-accent">dev</span>
+            <img
+              src="/logo.png"
+              alt="dandev logo"
+              className="h-10 w-10 rounded-full object-cover"
+            />
+            <span className="font-display text-sm font-bold tracking-wide text-white hidden sm:block">
+              DAN_DEV
+            </span>
           </button>
 
-          {/* Desktop navigation */}
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(({ label, id }) => (
               <button
@@ -77,26 +83,14 @@ export default function Navbar() {
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
-            <span
-              className={`block w-5 h-[1.5px] bg-white rounded-full transition-all duration-300 origin-center ${
-                menuOpen ? 'rotate-45 translate-y-[6.5px]' : ''
-              }`}
-            />
-            <span
-              className={`block w-5 h-[1.5px] bg-white rounded-full transition-all duration-200 ${
-                menuOpen ? 'opacity-0 scale-x-0' : ''
-              }`}
-            />
-            <span
-              className={`block w-5 h-[1.5px] bg-white rounded-full transition-all duration-300 origin-center ${
-                menuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''
-              }`}
-            />
+            <span className={`block w-5 h-[1.5px] bg-white rounded-full transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
+            <span className={`block w-5 h-[1.5px] bg-white rounded-full transition-all duration-200 ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
+            <span className={`block w-5 h-[1.5px] bg-white rounded-full transition-all duration-300 origin-center ${menuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile full-screen overlay */}
+      {/* Mobile overlay */}
       <div
         className={`fixed inset-0 z-40 md:hidden bg-[#0A0A0A]/98 backdrop-blur-2xl flex flex-col justify-center transition-all duration-300 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
