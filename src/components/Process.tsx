@@ -1,3 +1,5 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
 const steps = [
   {
     number: '01',
@@ -7,7 +9,7 @@ const steps = [
   {
     number: '02',
     title: 'Design',
-    desc: 'Before writing a single line of code, I map out the UX flow and visual direction — so we\'re aligned from day one.',
+    desc: "Before writing a single line of code, I map out the UX flow and visual direction — so we're aligned from day one.",
   },
   {
     number: '03',
@@ -22,13 +24,15 @@ const steps = [
 ]
 
 export default function Process() {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section id="process" className="relative bg-[#0A0A0A] py-32 overflow-hidden">
+    <section id="process" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20">
+        <div className="mb-20 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             How I Work
           </span>
@@ -42,14 +46,16 @@ export default function Process() {
 
         <div className="relative">
           {/* Connector line */}
-          <div className="hidden lg:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="hidden lg:block absolute top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, i) => (
-              <div key={step.number} className="relative flex flex-col gap-5">
+              <div key={step.number} className={`reveal reveal-d${i + 1} relative flex flex-col gap-5`}>
                 {/* Number badge */}
-                <div className="relative z-10 w-20 h-20 rounded-2xl border border-accent/25 bg-[#0A0A0A] flex items-center justify-center">
-                  <span className="font-display text-2xl font-bold text-accent">{step.number}</span>
+                <div className="relative z-10 w-20 h-20 rounded-2xl border border-accent/25 bg-[#0A0A0A] flex items-center justify-center hover:border-accent/50 hover:bg-accent/5 transition-all duration-300 group">
+                  <span className="font-display text-2xl font-bold text-accent group-hover:scale-110 transition-transform duration-300 inline-block">
+                    {step.number}
+                  </span>
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-bold text-white mb-2">{step.title}</h3>

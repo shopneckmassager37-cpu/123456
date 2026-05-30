@@ -1,15 +1,19 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
 const SCREENSHOT_URL = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 
 export default function Work() {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section id="work" className="relative bg-[#0A0A0A] py-32 overflow-hidden">
+    <section id="work" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       <div className="absolute -top-20 right-0 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-20 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             Selected Work
           </span>
@@ -22,7 +26,7 @@ export default function Work() {
         </div>
 
         {/* Chefaleh — Featured Card */}
-        <article className="group relative rounded-2xl border border-accent/20 bg-gradient-to-br from-surface to-[#0A0A0A] overflow-hidden hover:border-accent/35 transition-all duration-500">
+        <article className="reveal group relative rounded-2xl border border-accent/20 bg-gradient-to-br from-surface to-[#0A0A0A] overflow-hidden hover:border-accent/40 hover:shadow-[0_0_60px_rgba(212,168,83,0.1)] transition-all duration-500">
 
           {/* Ambient glow */}
           <div className="absolute -top-24 -right-24 w-72 h-72 bg-accent/8 rounded-full blur-[90px] pointer-events-none" />
@@ -80,7 +84,7 @@ export default function Work() {
                 href="https://www.chefaleh.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0A0A0A] text-sm font-semibold rounded-full hover:bg-accent-dim hover:shadow-[0_0_28px_rgba(212,168,83,0.4)] active:scale-95 transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-[#0A0A0A] text-sm font-semibold rounded-full hover:bg-accent-dim hover:shadow-[0_0_32px_rgba(212,168,83,0.4)] active:scale-95 transition-all duration-200 whitespace-nowrap"
               >
                 View Live Site
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

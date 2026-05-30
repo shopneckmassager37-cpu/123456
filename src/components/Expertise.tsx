@@ -1,3 +1,5 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
 const SKILLS = [
   {
     title: 'Full-Stack Web Development',
@@ -62,14 +64,14 @@ const SKILLS = [
 ]
 
 export default function Expertise() {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section id="expertise" className="relative bg-[#0A0A0A] py-32 overflow-hidden">
-      {/* Subtle divider glow */}
+    <section id="expertise" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <div className="mb-16">
+        <div className="mb-16 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             What I Do
           </span>
@@ -78,14 +80,13 @@ export default function Expertise() {
           </h2>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
-          {SKILLS.map(({ title, description, icon }) => (
+          {SKILLS.map(({ title, description, icon }, i) => (
             <div
               key={title}
-              className="group bg-[#0A0A0A] p-8 flex flex-col gap-4 hover:bg-surface transition-colors duration-300 cursor-default"
+              className={`reveal reveal-d${(i % 3) + 1} group bg-[#0A0A0A] p-8 flex flex-col gap-4 hover:bg-surface transition-colors duration-300 cursor-default`}
             >
-              <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent/15 group-hover:border-accent/35 transition-all duration-300">
+              <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent/18 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
                 {icon}
               </div>
               <div>

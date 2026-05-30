@@ -1,3 +1,5 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
 const services = [
   {
     icon: (
@@ -42,13 +44,15 @@ const services = [
 ]
 
 export default function Services() {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section id="services" className="relative bg-[#0A0A0A] py-32 overflow-hidden">
+    <section id="services" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       <div className="absolute top-20 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20">
+        <div className="mb-20 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             What I Do
           </span>
@@ -61,12 +65,12 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((s) => (
+          {services.map((s, i) => (
             <div
               key={s.title}
-              className="group relative rounded-2xl border border-white/8 bg-surface p-7 flex flex-col gap-5 hover:border-accent/30 hover:bg-accent/3 transition-all duration-300"
+              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-white/8 bg-surface p-7 flex flex-col gap-5 hover:border-accent/40 hover:bg-accent/4 hover:shadow-[0_0_40px_rgba(212,168,83,0.08)] transition-all duration-300`}
             >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent/15 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
                 {s.icon}
               </div>
               <div>
@@ -75,7 +79,7 @@ export default function Services() {
               </div>
               <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-white/5">
                 {s.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-white/30 font-medium">
+                  <span key={tag} className="text-xs text-white/30 font-medium group-hover:text-white/50 transition-colors">
                     {tag}
                   </span>
                 ))}
