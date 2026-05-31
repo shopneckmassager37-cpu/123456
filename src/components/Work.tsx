@@ -1,6 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const CHEFALEH_URL   = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
+const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
+const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://www.eqcounselingtesting.com'
 
 const PROJECTS = [
   {
@@ -16,14 +17,14 @@ const PROJECTS = [
   },
   {
     id: 'eq-counseling',
-    screenshotUrl: '',
+    screenshotUrl: EQ_URL,
     category: 'Web Development',
     domain: 'eqcounselingtesting.com',
     name: 'EQ Counseling & Testing',
-    desc: 'A professional mental health services website for Dr. Ronit Navon\'s practice in Orlando. Clean, trustworthy design with therapist profiles, service pages, booking flow, and insurance/rates info — built to convert visitors into consultations.',
+    desc: "A professional mental health services website for Dr. Ronit Navon's practice in Orlando. Clean, trustworthy design with therapist profiles, service pages, booking flow, and insurance/rates info — built to convert visitors into consultations.",
     tags: ['React', 'Healthcare', 'Multi-page', 'Booking Flow', 'Live'],
     url: 'https://www.eqcounselingtesting.com',
-    bgGradient: 'linear-gradient(135deg, #1a4fa0 0%, #2563b8 35%, #0ea5c9 70%, #38bdf8 100%)',
+    bgGradient: '',
   },
 ]
 
