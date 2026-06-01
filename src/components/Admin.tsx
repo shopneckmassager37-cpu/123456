@@ -20,7 +20,7 @@ export default function Admin() {
   const [authed, setAuthed]       = useState(false)
   const [pwError, setPwError]     = useState(false)
 
-  const ADMIN_PASS = import.meta.env.ps_ps
+  const ADMIN_PASS = import.meta.env.ps_ps ?? ''
 
   const login = () => {
     if (password === ADMIN_PASS) {
