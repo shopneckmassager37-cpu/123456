@@ -146,8 +146,8 @@ export default function Hero() {
           className="opacity-0-init animate-fade-up animation-delay-300 text-white/45 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-12"
           style={{ animationFillMode: 'forwards' }}
         >
-          Full-stack web & mobile development — from the first line of code to
-          a live, polished product. No shortcuts, no compromises.
+          I build websites and apps — from the first idea to the finished product,
+          live and ready to use. Fast, clean, and exactly how you imagined it.
         </p>
 
         {/* CTA buttons */}

@@ -9,12 +9,12 @@ const steps = [
   {
     number: '02',
     title: 'Design',
-    desc: "Before writing a single line of code, I map out the UX flow and visual direction — so we're aligned from day one.",
+    desc: "Before touching anything technical, I map out how it looks and how it flows — so we're both on the same page from day one.",
   },
   {
     number: '03',
     title: 'Build',
-    desc: 'I develop the product with clean, maintainable code. You get regular updates and can give feedback at every step.',
+    desc: "I build the product step by step. You get regular updates along the way and can give feedback at any point.",
   },
   {
     number: '04',

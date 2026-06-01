@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'What do you need from me to get started?',
-    a: 'Just a clear idea of what you want to build, your target audience, and any references or inspiration you like. I handle the rest — design, code, deployment.',
+    a: 'Just a clear idea of what you want to build, who it\'s for, and any examples you like the look of. I take care of everything else — design, building, and going live.',
   },
   {
     q: 'Do you offer ongoing support after launch?',
