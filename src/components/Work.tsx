@@ -1,7 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
-const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://www.eqcounselingtesting.com'
+const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
 
 const PROJECTS = [
   {
