@@ -134,30 +134,30 @@ function AboutDaniel() {
 
             <div className="space-y-5 text-white/55 text-base leading-relaxed">
               <p>
-                I'm a full-stack developer based in Israel. I've been building websites and apps for over two years,
-                working with clients across the US, Europe, and the Middle East.
+                I'm a full-stack developer who builds websites and apps for clients around the world.
+                I've been doing this for over two years and I genuinely love what I do.
               </p>
               <p>
-                I started coding because I wanted to build products — not just write code. Every project I take on is one I
-                believe in: something with a real user, a real problem, and a real purpose.
+                I started building because I wanted to create products — not just complete tasks. Every project I take on is
+                something I believe in: a real user, a real problem, and a real purpose.
               </p>
               <p>
-                What sets me apart is that I care about the entire product — not just my part of it. I think about UX,
-                performance, and business goals, not just the technical requirements.
+                What sets me apart is that I care about the entire product — not just my slice of it. I think about the
+                experience, the performance, and the business goals, not just what I was asked to build.
               </p>
               <p>
-                When I'm not building, I'm learning. New tools, new frameworks, new design patterns. The web moves fast and I
-                stay current.
+                I work remotely and move fast. Most projects are live within 1–2 weeks, and I stay in close contact with
+                every client throughout the process.
               </p>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              {['React', 'TypeScript', 'Node.js', 'React Native', 'Tailwind CSS', 'Supabase'].map((tech) => (
+              {['Web Apps', 'Mobile Apps', 'UI Design', 'Payments', 'Databases', 'Deployment'].map((skill) => (
                 <span
-                  key={tech}
+                  key={skill}
                   className="px-4 py-2 rounded-full border border-white/10 text-white/50 text-sm font-medium hover:border-accent/30 hover:text-white/70 transition-colors duration-200"
                 >
-                  {tech}
+                  {skill}
                 </span>
               ))}
             </div>

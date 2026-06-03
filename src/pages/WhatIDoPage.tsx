@@ -27,26 +27,26 @@ function useRevealSection() {
   return ref
 }
 
-const TECH = [
-  { name: 'React',        color: '#61DAFB' },
-  { name: 'TypeScript',   color: '#3178C6' },
-  { name: 'Tailwind CSS', color: '#38BDF8' },
-  { name: 'Next.js',      color: '#FFFFFF' },
-  { name: 'Node.js',      color: '#68A063' },
-  { name: 'Supabase',     color: '#3FCF8E' },
-  { name: 'Vite',         color: '#BD34FE' },
-  { name: 'React Native', color: '#61DAFB' },
-  { name: 'PostgreSQL',   color: '#336791' },
-  { name: 'Vercel',       color: '#FFFFFF' },
-  { name: 'Stripe',       color: '#635BFF' },
-  { name: 'Framer Motion',color: '#FF0055' },
+const CAPABILITIES = [
+  { name: 'Websites',        icon: '🌐' },
+  { name: 'Web Apps',        icon: '⚡' },
+  { name: 'Mobile Apps',     icon: '📱' },
+  { name: 'UI / UX Design',  icon: '🎨' },
+  { name: 'Online Stores',   icon: '🛒' },
+  { name: 'Booking Systems', icon: '📅' },
+  { name: 'User Accounts',   icon: '👤' },
+  { name: 'Payment Systems', icon: '💳' },
+  { name: 'Admin Dashboards',icon: '📊' },
+  { name: 'Email Automation',icon: '✉️'  },
+  { name: 'Maps & Location', icon: '📍' },
+  { name: 'Live Deployment', icon: '🚀' },
 ]
 
 const PROCESS_STEPS = [
-  { number: '01', title: 'Discovery call',    desc: 'Free 30-min call to understand your idea, goals, and what success looks like.' },
-  { number: '02', title: 'Design first',      desc: 'I design the full UI before writing a line of code — so we agree on look and feel upfront.' },
-  { number: '03', title: 'Build & iterate',   desc: 'Regular updates, quick iterations, and full transparency throughout the build.' },
-  { number: '04', title: 'Launch & handoff',  desc: 'Deployment, domain, speed checks — fully live. Plus training so you own it.' },
+  { number: '01', title: 'First conversation', desc: "We talk about your idea, your goals, and what success looks like. Free, no obligation." },
+  { number: '02', title: 'Design first',        desc: 'I design the full look and feel before building anything — so we agree upfront.' },
+  { number: '03', title: 'Build & iterate',     desc: 'Regular updates, quick iterations, and full transparency throughout the build.' },
+  { number: '04', title: 'Launch & handoff',    desc: 'Deployed, live, and fully yours — plus a walkthrough so you know how to manage it.' },
 ]
 
 const DELIVERABLES = [
@@ -131,34 +131,31 @@ function PageHero() {
   )
 }
 
-function TechStack() {
+function CapabilitiesGrid() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-24 overflow-hidden" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14 reveal">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Tech Stack</span>
+          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Capabilities</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-            Tools of the trade
+            What I can build for you
           </h2>
           <p className="text-white/40 text-base max-w-lg mx-auto leading-relaxed">
-            The same stack used by the world's top products — chosen for speed, quality, and scalability.
+            Whether it's a simple website or a complex product with custom features — I've built it.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 reveal">
-          {TECH.map((t, i) => (
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+          {CAPABILITIES.map((c, i) => (
             <div
-              key={t.name}
-              className={`reveal reveal-d${(i % 6) + 1} group flex flex-col items-center gap-2.5 rounded-xl border border-white/6 bg-[#111] px-4 py-5 hover:border-white/20 hover:bg-[#161616] transition-all duration-200 cursor-default`}
+              key={c.name}
+              className={`reveal reveal-d${(i % 6) + 1} group flex flex-col items-center gap-2.5 rounded-xl border border-white/6 bg-[#111] px-4 py-5 hover:border-accent/25 hover:bg-accent/4 transition-all duration-200 cursor-default`}
             >
-              <div
-                className="w-2.5 h-2.5 rounded-full transition-transform duration-200 group-hover:scale-125"
-                style={{ backgroundColor: t.color }}
-              />
+              <span className="text-xl group-hover:scale-125 transition-transform duration-200 select-none">{c.icon}</span>
               <span className="text-white/50 text-xs font-medium text-center group-hover:text-white/80 transition-colors duration-200">
-                {t.name}
+                {c.name}
               </span>
             </div>
           ))}
@@ -182,7 +179,7 @@ function HowItWorks() {
             <div className="reveal">
               <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">How It Works</span>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-                From call to launch <br />in four steps.
+                From first message <br />to launch in four steps.
               </h2>
               <p className="text-white/40 text-lg leading-relaxed mb-10">
                 No guesswork, no surprises. A simple, transparent process that keeps you in the loop from day one.
@@ -244,7 +241,7 @@ export default function WhatIDoPage() {
       <PageHero />
       <Expertise />
       <Services />
-      <TechStack />
+      <CapabilitiesGrid />
       <HowItWorks />
       <Footer />
     </>

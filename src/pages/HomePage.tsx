@@ -114,7 +114,7 @@ function FeaturedWork() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { img: CHEFALEH_URL, name: 'Chefaleh — Miami Catering', domain: 'chefaleh.com', url: 'https://www.chefaleh.com', tags: ['React', 'Luxury Brand', 'Live'] },
+            { img: CHEFALEH_URL, name: 'Chefaleh — Miami Catering', domain: 'chefaleh.com', url: 'https://www.chefaleh.com', tags: ['Luxury Brand', 'Web App', 'Live'] },
             { img: EQ_URL,       name: 'EQ Counseling & Testing',   domain: 'eqcounselingtesting.com', url: 'https://www.eqcounselingtesting.com', tags: ['Healthcare', 'Multi-page', 'Live'] },
           ].map((p, i) => (
             <article

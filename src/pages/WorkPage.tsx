@@ -52,7 +52,7 @@ const PILLARS = [
       </svg>
     ),
     title: 'Clean, scalable code',
-    desc: 'Component-based architecture, typed with TypeScript, easy to extend. You can hand this off to any developer and they\'ll understand it immediately.',
+    desc: 'Well-structured, easy to extend, and simple to hand off. Any developer can jump in and understand it immediately — no magic, no mess.',
   },
   {
     icon: (
