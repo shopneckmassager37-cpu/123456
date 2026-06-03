@@ -90,6 +90,19 @@ export default function Contact() {
             or an idea you want to bring to life — I'd love to hear about it.
           </p>
 
+          {/* Email direct */}
+          <div className="mb-6">
+            <a
+              href="mailto:danielgitlin2011@gmail.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent/30 bg-accent/8 text-accent text-sm font-semibold hover:bg-accent/15 hover:border-accent/50 transition-all duration-200"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              danielgitlin2011@gmail.com
+            </a>
+          </div>
+
           {/* Trust row */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/35">
             <span className="flex items-center gap-2">

@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { label: 'Expertise', id: 'expertise' },
-  { label: 'Work',      id: 'work'      },
-  { label: 'Contact',   id: 'contact'   },
+  { label: 'What I Do', path: '/what-i-do' },
+  { label: 'My Work',   path: '/work'      },
+  { label: 'About',     path: '/about'     },
 ]
-
-function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
 
 const LOGO_URL = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/0c8a8e3df_2026-05-27193417.png'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -27,10 +26,10 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const handleNavClick = (id: string) => {
+  useEffect(() => {
     setMenuOpen(false)
-    setTimeout(() => scrollTo(id), menuOpen ? 300 : 0)
-  }
+    window.scrollTo({ top: 0 })
+  }, [location.pathname])
 
   return (
     <>
@@ -44,8 +43,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <button
-            onClick={() => handleNavClick('hero')}
+          <Link
+            to="/"
             aria-label="dandev home"
             className="flex items-center gap-2.5 hover:opacity-85 transition-opacity"
           >
@@ -57,25 +56,29 @@ export default function Navbar() {
             <span className="font-display text-sm font-bold tracking-wide text-white hidden sm:block">
               DAN_DEV
             </span>
-          </button>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map(({ label, id }) => (
-              <button
-                key={id}
-                onClick={() => handleNavClick(id)}
-                className="px-4 py-2 text-sm font-medium text-white/55 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+            {NAV_LINKS.map(({ label, path }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  location.pathname === path
+                    ? 'text-white bg-white/8'
+                    : 'text-white/55 hover:text-white hover:bg-white/5'
+                }`}
               >
                 {label}
-              </button>
+              </Link>
             ))}
-            <button
-              onClick={() => handleNavClick('contact')}
+            <Link
+              to="/contact"
               className="ml-3 px-5 py-2 bg-accent text-[#0A0A0A] text-sm font-semibold rounded-full hover:bg-accent-dim active:scale-95 transition-all duration-200 shadow-[0_0_20px_rgba(212,168,83,0.25)]"
             >
               Let's Talk
-            </button>
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -99,27 +102,27 @@ export default function Navbar() {
         }`}
       >
         <div className="px-8 flex flex-col gap-2">
-          {NAV_LINKS.map(({ label, id }, i) => (
-            <button
-              key={id}
-              onClick={() => handleNavClick(id)}
-              className={`text-left text-4xl font-display font-bold py-3 text-white/40 hover:text-white transition-all duration-200 border-b border-white/5 last:border-0 ${
+          {NAV_LINKS.map(({ label, path }, i) => (
+            <Link
+              key={path}
+              to={path}
+              className={`text-left text-4xl font-display font-bold py-3 hover:text-white transition-all duration-200 border-b border-white/5 last:border-0 ${
                 menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-              }`}
+              } ${location.pathname === path ? 'text-white' : 'text-white/40'}`}
               style={{ transitionDelay: menuOpen ? `${i * 60 + 100}ms` : '0ms' }}
             >
               {label}
-            </button>
+            </Link>
           ))}
-          <button
-            onClick={() => handleNavClick('contact')}
-            className={`mt-8 w-full py-4 bg-accent text-[#0A0A0A] font-semibold text-lg rounded-full hover:bg-accent-dim active:scale-95 transition-all duration-200 ${
+          <Link
+            to="/contact"
+            className={`mt-8 w-full py-4 bg-accent text-[#0A0A0A] font-semibold text-lg rounded-full hover:bg-accent-dim active:scale-95 transition-all duration-200 text-center ${
               menuOpen ? 'opacity-100' : 'opacity-0'
             }`}
             style={{ transitionDelay: menuOpen ? '280ms' : '0ms' }}
           >
             Let's Talk
-          </button>
+          </Link>
         </div>
       </div>
     </>

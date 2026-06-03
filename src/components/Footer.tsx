@@ -1,8 +1,12 @@
-const NAV = ['Work', 'Expertise', 'Contact']
+import { Link } from 'react-router-dom'
 
-function scrollTo(id: string) {
-  document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })
-}
+const NAV = [
+  { label: 'Home',       path: '/'          },
+  { label: 'What I Do',  path: '/what-i-do' },
+  { label: 'My Work',    path: '/work'      },
+  { label: 'About',      path: '/about'     },
+  { label: 'Contact',    path: '/contact'   },
+]
 
 export default function Footer() {
   return (
@@ -10,23 +14,23 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
 
         {/* Logo */}
-        <button
-          onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}
+        <Link
+          to="/"
           className="font-display text-base font-bold text-white/60 hover:text-white transition-colors"
         >
           dan<span className="text-accent">dev</span>
-        </button>
+        </Link>
 
         {/* Nav */}
-        <div className="flex items-center gap-6">
-          {NAV.map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item)}
+        <div className="flex items-center gap-6 flex-wrap justify-center">
+          {NAV.map(({ label, path }) => (
+            <Link
+              key={path}
+              to={path}
               className="text-white/35 hover:text-white text-sm font-medium transition-colors"
             >
-              {item}
-            </button>
+              {label}
+            </Link>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function useCounter(target: number, running: boolean, duration = 1300) {
   const [count, setCount] = useState(0)
@@ -36,8 +37,9 @@ const PARTICLES = [
 ]
 
 export default function Hero() {
-  const scrollToWork    = () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })
-  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+  const scrollToWork    = () => navigate('/work')
+  const scrollToContact = () => navigate('/contact')
 
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
   const [statsRunning, setStatsRunning] = useState(false)
