@@ -16,7 +16,7 @@ const SUBJECTS = [
   { label: '💬 Other',      value: 'Other'                   },
 ]
 
-const API_ENDPOINT = 'https://app-070710f1.base44.app/functions/saveMessage'
+const API_ENDPOINT = '/api/contact'
 
 export default function Contact() {
   const sectionRef = useScrollReveal()
