@@ -8,13 +8,13 @@
   }
 
   body {
-    @apply bg-[#0A0A0A] text-white antialiased;
+    @apply bg-[#0A0A0A] text-cream antialiased;
     font-family: 'Inter', sans-serif;
   }
 
   ::selection {
-    background-color: #D4A85340;
-    color: #fff;
+    background-color: #D4A85333;
+    color: #EDEAE3;
   }
 
   ::-webkit-scrollbar {
@@ -24,7 +24,7 @@
     background: #0A0A0A;
   }
   ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #2a2a2a;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -41,12 +41,45 @@
   .animation-delay-700 { animation-delay: 700ms; }
   .opacity-0-init      { opacity: 0; }
 
-  /* Scroll reveal */
+  /* ---- Editorial oversized display type ---- */
+  .display-hero {
+    font-size: clamp(3rem, 11vw, 11rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+  }
+  .display-xl {
+    font-size: clamp(2.5rem, 7.5vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .display-lg {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  /* Hairline divider */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(237,234,227,0.14), transparent);
+  }
+  .hairline-solid {
+    height: 1px;
+    background: rgba(237,234,227,0.1);
+  }
+
+  /* Section index label e.g. (01) */
+  .section-index {
+    font-feature-settings: 'tnum';
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- Scroll reveal (editorial line mask) ---- */
   .reveal {
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.in-view {
     opacity: 1;
@@ -55,8 +88,8 @@
   .reveal-left {
     opacity: 0;
     transform: translateX(-28px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal-left.in-view {
     opacity: 1;
@@ -64,14 +97,30 @@
   }
   .reveal-scale {
     opacity: 0;
-    transform: scale(0.92);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.94);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal-scale.in-view {
     opacity: 1;
     transform: scale(1);
   }
+
+  /* Line-by-line mask reveal for big headings */
+  .reveal-mask {
+    overflow: hidden;
+  }
+  .reveal-mask > span {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-mask.in-view > span {
+    transform: translateY(0);
+  }
+  .reveal-mask.rm-d1 > span { transition-delay: 60ms;  }
+  .reveal-mask.rm-d2 > span { transition-delay: 150ms; }
+  .reveal-mask.rm-d3 > span { transition-delay: 240ms; }
 
   /* Stagger delays */
   .reveal-d1 { transition-delay: 80ms; }
@@ -81,7 +130,7 @@
   .reveal-d5 { transition-delay: 400ms; }
   .reveal-d6 { transition-delay: 480ms; }
 
-  /* Animated gradient text */
+  /* Animated gradient text (subtle gold) */
   .gradient-text {
     background: linear-gradient(135deg, #D4A853 0%, #F0CB72 40%, #D4A853 80%);
     background-size: 200% auto;
@@ -91,20 +140,49 @@
     animation: shimmer 3.5s linear infinite;
   }
 
-  /* Animated glow card border */
-  .glow-card {
-    position: relative;
-    background: #111;
-    border-radius: 1rem;
+  /* Outlined display text (editorial accent) */
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(237,234,227,0.35);
+    color: transparent;
   }
-  .glow-card::before {
+
+  /* Marquee track */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  /* Magnetic / link underline reveal */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
     content: '';
     position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, #D4A85355, #D4A85308, #D4A85355);
-    background-size: 300% 300%;
-    animation: gradient-border 4s ease infinite;
-    z-index: -1;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Animated glow card border (kept subtle, used sparingly) */
+  .glow-card {
+    position: relative;
+    background: #0E0E0E;
+    border-radius: 1rem;
+    border: 1px solid rgba(237,234,227,0.08);
   }
 }

@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import SectionHeader from './SectionHeader'
 
 const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
@@ -32,26 +33,16 @@ export default function Work() {
   const sectionRef = useScrollReveal()
 
   return (
-    <section id="work" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-      <div className="absolute -top-20 right-0 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[120px] pointer-events-none" />
+    <section id="work" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <SectionHeader
+          index="03"
+          label="Selected Work"
+          title={<>Products I've <span className="text-outline">built</span></>}
+          subtitle="Real projects, shipped to production. From concept to launch."
+        />
 
-      <div className="max-w-7xl mx-auto px-6">
-
-        {/* Header */}
-        <div className="mb-20 reveal">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-            Selected Work
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">
-            Products I've Built
-          </h2>
-          <p className="text-white/40 text-lg max-w-xl leading-relaxed">
-            Real projects, shipped to production. From concept to launch.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           {PROJECTS.map((project, idx) => (
             <ProjectCard key={project.id} project={project} index={idx} />
           ))}
@@ -66,10 +57,8 @@ type Project = typeof PROJECTS[number]
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article
-      className={`reveal reveal-d${index + 1} group relative rounded-2xl border border-accent/20 bg-gradient-to-br from-surface to-[#0A0A0A] overflow-hidden hover:border-accent/40 hover:shadow-[0_0_60px_rgba(212,168,83,0.1)] transition-all duration-500`}
+      className={`reveal reveal-d${index + 1} group relative rounded-2xl border border-cream/[0.08] bg-surface overflow-hidden hover:border-cream/20 transition-all duration-500`}
     >
-      {/* Ambient glow */}
-      <div className="absolute -top-24 -right-24 w-72 h-72 bg-accent/8 rounded-full blur-[90px] pointer-events-none" />
 
       {/* Screenshot / Placeholder */}
       <div className="relative overflow-hidden w-full" style={{ aspectRatio: '16/8' }}>
@@ -136,17 +125,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {/* Content */}
       <div className="p-8 md:p-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
         <div className="max-w-2xl">
-          <h3 className="font-display text-2xl md:text-4xl font-bold text-white mb-3 leading-tight">
+          <h3 className="font-display text-2xl md:text-4xl font-bold text-cream mb-3 leading-tight">
             {project.name}
           </h3>
-          <p className="text-white/50 text-base leading-relaxed mb-6">
+          <p className="text-cream/50 text-base leading-relaxed mb-6">
             {project.desc}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 rounded-full border border-white/10 text-white/40 text-xs font-medium"
+                className="px-3 py-1 rounded-full border border-cream/10 text-cream/40 text-xs font-medium"
               >
                 {tag}
               </span>

@@ -63,14 +63,14 @@ const VALUES = [
 function PageHero() {
   const ref = useRevealSection()
   return (
-    <section className="relative bg-[#0A0A0A] pt-32 pb-20 overflow-hidden" ref={ref}>
+    <section className="relative bg-[#0A0A0A] pt-40 pb-24 overflow-hidden" ref={ref}>
       <div className="absolute top-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-accent/8 rounded-full blur-[130px]" />
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-accent/[0.05] rounded-full blur-[150px]" />
       </div>
       <div
         className="absolute inset-0 opacity-15"
         style={{
-          backgroundImage: 'radial-gradient(circle, #ffffff12 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, #EDEAE310 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
@@ -79,10 +79,10 @@ function PageHero() {
           <span className="w-2 h-2 rounded-full bg-accent animate-dot-pulse" />
           <span className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">About</span>
         </div>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-tight mb-6 reveal">
+        <h1 className="display-xl font-display font-bold text-cream mb-6 reveal">
           The person <span className="gradient-text">behind the code</span>
         </h1>
-        <p className="text-white/45 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal">
+        <p className="text-cream/45 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal">
           How I work, what I stand for, and what you can expect when we build something together.
         </p>
       </div>
@@ -94,7 +94,7 @@ function AboutDaniel() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
       <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -114,13 +114,13 @@ function AboutDaniel() {
               {/* Floating badge */}
               <div className="absolute -bottom-5 -right-5 bg-[#111] border border-accent/30 rounded-2xl px-5 py-3.5 shadow-xl">
                 <div className="text-accent font-display text-2xl font-bold">2+</div>
-                <div className="text-white/50 text-xs font-medium mt-0.5">Years Building</div>
+                <div className="text-cream/50 text-xs font-medium mt-0.5">Years Building</div>
               </div>
 
               {/* Status dot */}
-              <div className="absolute -top-3 -left-3 flex items-center gap-2 bg-[#111] border border-white/10 rounded-full px-4 py-2">
+              <div className="absolute -top-3 -left-3 flex items-center gap-2 bg-[#111] border border-cream/10 rounded-full px-4 py-2">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-dot-pulse" />
-                <span className="text-white/60 text-xs font-medium">Available for projects</span>
+                <span className="text-cream/60 text-xs font-medium">Available for projects</span>
               </div>
             </div>
           </div>
@@ -128,11 +128,11 @@ function AboutDaniel() {
           {/* Right — story */}
           <div className="reveal">
             <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">About me</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-cream tracking-tight mb-6">
               Hi, I'm Daniel.
             </h2>
 
-            <div className="space-y-5 text-white/55 text-base leading-relaxed">
+            <div className="space-y-5 text-cream/55 text-base leading-relaxed">
               <p>
                 I'm a full-stack developer who builds websites and apps for clients around the world.
                 I've been doing this for over two years and I genuinely love what I do.
@@ -155,7 +155,7 @@ function AboutDaniel() {
               {['Web Apps', 'Mobile Apps', 'UI Design', 'Payments', 'Databases', 'Deployment'].map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 rounded-full border border-white/10 text-white/50 text-sm font-medium hover:border-accent/30 hover:text-white/70 transition-colors duration-200"
+                  className="px-4 py-2 rounded-full border border-cream/10 text-cream/50 text-sm font-medium hover:border-accent/30 hover:text-cream/70 transition-colors duration-200"
                 >
                   {skill}
                 </span>
@@ -172,16 +172,16 @@ function CoreValues() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Values</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-cream tracking-tight mb-4">
             How I work
           </h2>
-          <p className="text-white/40 text-lg max-w-lg mx-auto leading-relaxed">
+          <p className="text-cream/40 text-lg max-w-lg mx-auto leading-relaxed">
             Three principles that guide every project I take on.
           </p>
         </div>
@@ -190,15 +190,15 @@ function CoreValues() {
           {VALUES.map((v, i) => (
             <div
               key={v.title}
-              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-white/8 bg-[#111] p-8 hover:border-accent/30 hover:bg-accent/3 transition-all duration-400 overflow-hidden`}
+              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-cream/8 bg-[#111] p-8 hover:border-accent/30 hover:bg-accent/3 transition-all duration-400 overflow-hidden`}
             >
               <div className="absolute top-0 right-0 w-40 h-40 bg-accent/4 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
                   {v.icon}
                 </div>
-                <h3 className="font-display text-xl font-bold text-white mb-3">{v.title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{v.desc}</p>
+                <h3 className="font-display text-xl font-bold text-cream mb-3">{v.title}</h3>
+                <p className="text-cream/45 text-sm leading-relaxed">{v.desc}</p>
               </div>
             </div>
           ))}
@@ -217,10 +217,10 @@ function AboutCTA() {
       </div>
       <div className="relative max-w-3xl mx-auto px-6 text-center reveal-scale">
         <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-6">Let's talk</span>
-        <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-tight">
+        <h2 className="font-display text-4xl md:text-6xl font-bold text-cream tracking-tight mb-6 leading-tight">
           Sound like a <span className="gradient-text">good fit?</span>
         </h2>
-        <p className="text-white/40 text-lg leading-relaxed max-w-lg mx-auto mb-10">
+        <p className="text-cream/40 text-lg leading-relaxed max-w-lg mx-auto mb-10">
           I'd love to hear about your project. No commitments — just a conversation about what you want to build.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -232,7 +232,7 @@ function AboutCTA() {
           </Link>
           <Link
             to="/work"
-            className="w-full sm:w-auto px-10 py-4 border border-white/12 text-white text-base font-medium rounded-full hover:border-white/30 hover:bg-white/5 active:scale-95 transition-all duration-200"
+            className="w-full sm:w-auto px-10 py-4 border border-cream/12 text-cream text-base font-medium rounded-full hover:border-cream/30 hover:bg-cream/5 active:scale-95 transition-all duration-200"
           >
             See My Work
           </Link>

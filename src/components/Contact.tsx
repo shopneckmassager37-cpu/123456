@@ -65,27 +65,26 @@ export default function Contact() {
     }
   }
 
-  const inputBase   = 'w-full bg-[#0D0D0D] border rounded-xl px-4 py-3 text-white placeholder-white/20 text-sm outline-none transition-all duration-200 focus:ring-1'
-  const inputNormal = `${inputBase} border-white/10 focus:border-accent/50 focus:ring-accent/20 hover:border-white/20`
+  const inputBase   = 'w-full bg-[#0D0D0D] border rounded-xl px-4 py-3 text-cream placeholder-cream/20 text-sm outline-none transition-all duration-200 focus:ring-1'
+  const inputNormal = `${inputBase} border-cream/10 focus:border-accent/50 focus:ring-accent/20 hover:border-cream/20`
   const inputError  = `${inputBase} border-red-500/50 focus:border-red-500/70 focus:ring-red-500/20`
 
   return (
-    <section id="contact" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-accent/6 rounded-full blur-[120px] pointer-events-none animate-glow-pulse" />
-
+    <section id="contact" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-3xl mx-auto px-6">
 
         {/* Header */}
         <div className="text-center mb-12 reveal">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-            Get In Touch
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-5 leading-tight">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <span className="section-index text-accent text-sm font-semibold tracking-widest">(06)</span>
+            <span className="w-8 h-px bg-accent/40" />
+            <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Get In Touch</span>
+          </div>
+          <h2 className="display-lg font-display font-bold text-cream mb-6 leading-tight">
             Let's build something<br />
-            <span className="gradient-text">great together.</span>
+            <span className="text-outline">great together.</span>
           </h2>
-          <p className="text-white/40 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+          <p className="text-cream/40 text-lg leading-relaxed max-w-xl mx-auto mb-8">
             Have a project in mind? Whether it's a web app, a mobile product,
             or an idea you want to bring to life — I'd love to hear about it.
           </p>
@@ -104,7 +103,7 @@ export default function Contact() {
           </div>
 
           {/* Trust row */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/35">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-cream/35">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-dot-pulse" />
               Free consultation
@@ -114,7 +113,7 @@ export default function Contact() {
               Reply within 24h
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-cream/40" />
               No obligation
             </span>
           </div>
@@ -128,13 +127,13 @@ export default function Contact() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h3 className="font-display text-2xl font-bold text-white">Message Sent!</h3>
-            <p className="text-white/45 text-sm leading-relaxed max-w-xs">
+            <h3 className="font-display text-2xl font-bold text-cream">Message Sent!</h3>
+            <p className="text-cream/45 text-sm leading-relaxed max-w-xs">
               Thanks for reaching out. I'll get back to you within 24 hours.
             </p>
             <button
               onClick={() => setStatus('idle')}
-              className="mt-2 px-6 py-2.5 border border-white/10 text-white/60 text-sm rounded-full hover:border-white/25 hover:text-white transition-all"
+              className="mt-2 px-6 py-2.5 border border-cream/10 text-cream/60 text-sm rounded-full hover:border-cream/25 hover:text-cream transition-all"
             >
               Send another message
             </button>
@@ -154,7 +153,7 @@ export default function Contact() {
 
               {/* Subject pills */}
               <div>
-                <label className="block text-white/45 text-xs font-medium mb-3 uppercase tracking-wider">
+                <label className="block text-cream/45 text-xs font-medium mb-3 uppercase tracking-wider">
                   What can I help with?
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -166,7 +165,7 @@ export default function Contact() {
                       className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
                         form.subject === value
                           ? 'bg-accent/15 border-accent/50 text-accent'
-                          : 'border-white/10 text-white/40 hover:border-white/25 hover:text-white/70'
+                          : 'border-cream/10 text-cream/40 hover:border-cream/25 hover:text-cream/70'
                       }`}
                     >
                       {label}
@@ -178,7 +177,7 @@ export default function Contact() {
               {/* Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Name</label>
+                  <label className="block text-cream/45 text-xs font-medium mb-2 uppercase tracking-wider">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -190,7 +189,7 @@ export default function Contact() {
                   {errors.name && <p className="mt-1.5 text-red-400 text-xs">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Email</label>
+                  <label className="block text-cream/45 text-xs font-medium mb-2 uppercase tracking-wider">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -205,7 +204,7 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">
+                <label className="block text-cream/45 text-xs font-medium mb-2 uppercase tracking-wider">
                   Tell me about your project
                 </label>
                 <textarea
@@ -237,7 +236,7 @@ export default function Contact() {
                 )}
               </button>
 
-              <p className="text-center text-white/20 text-xs">
+              <p className="text-center text-cream/20 text-xs">
                 No spam, no commitment. Just a conversation.
               </p>
             </form>

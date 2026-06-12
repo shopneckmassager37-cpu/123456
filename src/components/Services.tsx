@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import SectionHeader from './SectionHeader'
 
 const services = [
   {
@@ -47,39 +48,34 @@ export default function Services() {
   const sectionRef = useScrollReveal()
 
   return (
-    <section id="services" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-      <div className="absolute top-20 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+    <section id="services" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <SectionHeader
+          index="02"
+          label="Services"
+          title={<>What I <span className="text-outline">build</span></>}
+          subtitle="Whatever you need built — I can take it from idea to finished product."
+        />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20 reveal">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-            What I Do
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">
-            Services
-          </h2>
-          <p className="text-white/40 text-lg max-w-xl leading-relaxed">
-            Whatever you need built — I can take it from idea to finished product.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
           {services.map((s, i) => (
             <div
               key={s.title}
-              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-white/8 bg-surface p-7 flex flex-col gap-5 hover:border-accent/40 hover:bg-accent/4 hover:shadow-[0_0_40px_rgba(212,168,83,0.08)] transition-all duration-300`}
+              className={`reveal reveal-d${i + 1} group relative bg-[#0A0A0A] p-8 flex flex-col gap-5 hover:bg-surface transition-colors duration-300`}
             >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
-                {s.icon}
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-xl bg-cream/[0.04] border border-cream/10 flex items-center justify-center text-accent group-hover:border-accent/40 group-hover:-translate-y-1 transition-all duration-300">
+                  {s.icon}
+                </div>
+                <span className="section-index text-cream/15 text-sm font-semibold group-hover:text-accent/40 transition-colors duration-300">0{i + 1}</span>
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-display text-lg font-bold text-cream mb-2">{s.title}</h3>
+                <p className="text-cream/45 text-sm leading-relaxed">{s.desc}</p>
               </div>
-              <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-white/5">
+              <div className="flex flex-wrap gap-2 mt-auto pt-3 border-t border-cream/[0.07]">
                 {s.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-white/30 font-medium group-hover:text-white/50 transition-colors">
+                  <span key={tag} className="text-xs text-cream/30 font-medium group-hover:text-cream/55 transition-colors">
                     {tag}
                   </span>
                 ))}

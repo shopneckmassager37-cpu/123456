@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
+import Marquee from '../components/Marquee'
 
 const CHEFALEH_URL = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL       = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
@@ -90,20 +91,20 @@ function FeaturedWork() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
       <div className="absolute -top-10 left-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 reveal">
           <div>
             <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Featured Work</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-cream tracking-tight">
               Real projects. <span className="gradient-text">Real results.</span>
             </h2>
           </div>
           <Link
             to="/work"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 border border-white/12 text-white/60 text-sm font-medium rounded-full hover:border-white/30 hover:text-white transition-all duration-200"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 border border-cream/12 text-cream/60 text-sm font-medium rounded-full hover:border-cream/30 hover:text-cream transition-all duration-200"
           >
             View all work
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -119,7 +120,7 @@ function FeaturedWork() {
           ].map((p, i) => (
             <article
               key={p.domain}
-              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-white/8 overflow-hidden hover:border-accent/40 hover:shadow-[0_0_60px_rgba(212,168,83,0.1)] transition-all duration-500`}
+              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-cream/8 overflow-hidden hover:border-accent/40 hover:shadow-[0_0_60px_rgba(212,168,83,0.1)] transition-all duration-500`}
             >
               <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                 <img
@@ -131,17 +132,17 @@ function FeaturedWork() {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-                  <span className="ml-3 flex-1 bg-white/10 rounded-sm h-4 max-w-[220px] flex items-center px-2">
-                    <span className="text-white/40 text-[9px] font-mono truncate">{p.domain}</span>
+                  <span className="ml-3 flex-1 bg-cream/10 rounded-sm h-4 max-w-[220px] flex items-center px-2">
+                    <span className="text-cream/40 text-[9px] font-mono truncate">{p.domain}</span>
                   </span>
                 </div>
               </div>
               <div className="p-6 flex items-center justify-between gap-4">
                 <div>
-                  <h3 className="font-display text-lg font-bold text-white mb-2">{p.name}</h3>
+                  <h3 className="font-display text-lg font-bold text-cream mb-2">{p.name}</h3>
                   <div className="flex flex-wrap gap-2">
                     {p.tags.map((t) => (
-                      <span key={t} className="px-2.5 py-1 rounded-full border border-white/10 text-white/40 text-xs font-medium">{t}</span>
+                      <span key={t} className="px-2.5 py-1 rounded-full border border-cream/10 text-cream/40 text-xs font-medium">{t}</span>
                     ))}
                   </div>
                 </div>
@@ -168,17 +169,17 @@ function ServicesStrip() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Services</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-cream tracking-tight mb-4">
             Everything you need, <br className="hidden sm:block" />
             <span className="gradient-text">under one roof.</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-cream/40 text-lg max-w-xl mx-auto leading-relaxed">
             From first wireframe to live deployment — I handle the full stack so you don't have to.
           </p>
         </div>
@@ -187,14 +188,14 @@ function ServicesStrip() {
           {SERVICES_PREVIEW.map((s, i) => (
             <div
               key={s.title}
-              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-white/8 bg-[#111] p-7 flex flex-col gap-4 hover:border-accent/40 hover:bg-accent/4 hover:shadow-[0_0_40px_rgba(212,168,83,0.08)] transition-all duration-300`}
+              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-cream/8 bg-[#111] p-7 flex flex-col gap-4 hover:border-accent/40 hover:bg-accent/4 hover:shadow-[0_0_40px_rgba(212,168,83,0.08)] transition-all duration-300`}
             >
               <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
                 {s.icon}
               </div>
               <div>
-                <h3 className="font-display text-base font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-display text-base font-bold text-cream mb-2">{s.title}</h3>
+                <p className="text-cream/45 text-sm leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}
@@ -203,7 +204,7 @@ function ServicesStrip() {
         <div className="text-center mt-12 reveal">
           <Link
             to="/what-i-do"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/12 text-white text-sm font-medium rounded-full hover:border-white/30 hover:bg-white/5 active:scale-95 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-cream/12 text-cream text-sm font-medium rounded-full hover:border-cream/30 hover:bg-cream/5 active:scale-95 transition-all duration-200"
           >
             See full list of services
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -220,12 +221,12 @@ function WhyMe() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Why Daniel</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-cream tracking-tight">
             Why work with me?
           </h2>
         </div>
@@ -234,19 +235,19 @@ function WhyMe() {
           {REASONS.map((r, i) => (
             <div
               key={r.number}
-              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-white/8 bg-[#111] p-8 hover:border-accent/30 hover:bg-accent/3 transition-all duration-400`}
+              className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-cream/8 bg-[#111] p-8 hover:border-accent/30 hover:bg-accent/3 transition-all duration-400`}
             >
               <div className="font-display text-6xl font-bold text-accent/15 group-hover:text-accent/25 transition-colors duration-300 leading-none mb-6 select-none">
                 {r.number}
               </div>
-              <h3 className="font-display text-xl font-bold text-white mb-3">{r.title}</h3>
-              <p className="text-white/45 text-sm leading-relaxed">{r.desc}</p>
+              <h3 className="font-display text-xl font-bold text-cream mb-3">{r.title}</h3>
+              <p className="text-cream/45 text-sm leading-relaxed">{r.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Stats row */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5 reveal">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-cream/5 rounded-2xl overflow-hidden border border-cream/5 reveal">
           {[
             { value: '2+',  label: 'Years building'   },
             { value: '10+', label: 'Projects shipped'  },
@@ -254,8 +255,8 @@ function WhyMe() {
             { value: '24h', label: 'Response time'     },
           ].map(({ value, label }) => (
             <div key={label} className="bg-[#0A0A0A] px-8 py-10 text-center hover:bg-[#111] transition-colors duration-200">
-              <div className="font-display text-4xl font-bold text-white mb-2">{value}</div>
-              <div className="text-white/35 text-sm font-medium">{label}</div>
+              <div className="font-display text-4xl font-bold text-cream mb-2">{value}</div>
+              <div className="text-cream/35 text-sm font-medium">{label}</div>
             </div>
           ))}
         </div>
@@ -274,10 +275,10 @@ function HomeCTA() {
 
       <div className="relative max-w-4xl mx-auto px-6 text-center reveal-scale">
         <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-6">Ready?</span>
-        <h2 className="font-display text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
+        <h2 className="font-display text-5xl md:text-7xl font-bold text-cream tracking-tight mb-6 leading-tight">
           Let's build something <span className="gradient-text">great.</span>
         </h2>
-        <p className="text-white/40 text-xl leading-relaxed max-w-xl mx-auto mb-12">
+        <p className="text-cream/40 text-xl leading-relaxed max-w-xl mx-auto mb-12">
           Got an idea? I'll turn it into a real product — fast, clean, and exactly how you imagined it.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -289,7 +290,7 @@ function HomeCTA() {
           </Link>
           <Link
             to="/work"
-            className="w-full sm:w-auto px-10 py-4 border border-white/12 text-white text-base font-medium rounded-full hover:border-white/30 hover:bg-white/5 active:scale-95 transition-all duration-200"
+            className="w-full sm:w-auto px-10 py-4 border border-cream/12 text-cream text-base font-medium rounded-full hover:border-cream/30 hover:bg-cream/5 active:scale-95 transition-all duration-200"
           >
             See My Work
           </Link>
@@ -303,9 +304,15 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
+        <Marquee items={['Websites', 'Mobile Apps', 'UI Design', 'Web Apps', 'Launch']} />
+      </div>
       <FeaturedWork />
       <ServicesStrip />
       <WhyMe />
+      <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
+        <Marquee items={["Let's build", 'Something great', 'Together']} reverse speed="slow" />
+      </div>
       <HomeCTA />
       <Footer />
     </>

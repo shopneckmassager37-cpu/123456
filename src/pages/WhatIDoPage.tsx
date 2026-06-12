@@ -103,14 +103,14 @@ const DELIVERABLES = [
 function PageHero() {
   const ref = useRevealSection()
   return (
-    <section className="relative bg-[#0A0A0A] pt-32 pb-20 overflow-hidden" ref={ref}>
+    <section className="relative bg-[#0A0A0A] pt-40 pb-24 overflow-hidden" ref={ref}>
       <div className="absolute top-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-accent/8 rounded-full blur-[130px]" />
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-accent/[0.05] rounded-full blur-[150px]" />
       </div>
       <div
         className="absolute inset-0 opacity-15"
         style={{
-          backgroundImage: 'radial-gradient(circle, #ffffff12 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, #EDEAE310 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
@@ -119,10 +119,10 @@ function PageHero() {
           <span className="w-2 h-2 rounded-full bg-accent animate-dot-pulse" />
           <span className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">Services & Expertise</span>
         </div>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-tight mb-6 reveal">
+        <h1 className="display-xl font-display font-bold text-cream mb-6 reveal">
           What I <span className="gradient-text">Build</span>
         </h1>
-        <p className="text-white/45 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal">
+        <p className="text-cream/45 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal">
           Full-stack development from idea to deployment. Websites, web apps, and mobile apps —
           built with modern tools and attention to every detail.
         </p>
@@ -135,14 +135,14 @@ function CapabilitiesGrid() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-24 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14 reveal">
           <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Capabilities</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-cream tracking-tight mb-4">
             What I can build for you
           </h2>
-          <p className="text-white/40 text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-cream/40 text-base max-w-lg mx-auto leading-relaxed">
             Whether it's a simple website or a complex product with custom features — I've built it.
           </p>
         </div>
@@ -151,10 +151,10 @@ function CapabilitiesGrid() {
           {CAPABILITIES.map((c, i) => (
             <div
               key={c.name}
-              className={`reveal reveal-d${(i % 6) + 1} group flex flex-col items-center gap-2.5 rounded-xl border border-white/6 bg-[#111] px-4 py-5 hover:border-accent/25 hover:bg-accent/4 transition-all duration-200 cursor-default`}
+              className={`reveal reveal-d${(i % 6) + 1} group flex flex-col items-center gap-2.5 rounded-xl border border-cream/6 bg-[#111] px-4 py-5 hover:border-accent/25 hover:bg-accent/4 transition-all duration-200 cursor-default`}
             >
               <span className="text-xl group-hover:scale-125 transition-transform duration-200 select-none">{c.icon}</span>
-              <span className="text-white/50 text-xs font-medium text-center group-hover:text-white/80 transition-colors duration-200">
+              <span className="text-cream/50 text-xs font-medium text-center group-hover:text-cream/80 transition-colors duration-200">
                 {c.name}
               </span>
             </div>
@@ -169,7 +169,7 @@ function HowItWorks() {
   const ref = useRevealSection()
   return (
     <section className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -178,10 +178,10 @@ function HowItWorks() {
           <div>
             <div className="reveal">
               <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">How It Works</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-cream tracking-tight mb-6">
                 From first message <br />to launch in four steps.
               </h2>
-              <p className="text-white/40 text-lg leading-relaxed mb-10">
+              <p className="text-cream/40 text-lg leading-relaxed mb-10">
                 No guesswork, no surprises. A simple, transparent process that keeps you in the loop from day one.
               </p>
             </div>
@@ -193,8 +193,8 @@ function HowItWorks() {
                     <span className="font-display text-sm font-bold text-accent">{step.number}</span>
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-bold text-white mb-1">{step.title}</h3>
-                    <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
+                    <h3 className="font-display text-base font-bold text-cream mb-1">{step.title}</h3>
+                    <p className="text-cream/40 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -206,7 +206,7 @@ function HowItWorks() {
             <div className="glow-card p-8 md:p-10">
               <div className="mb-8">
                 <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">Every project includes</span>
-                <h3 className="font-display text-2xl font-bold text-white mt-3">What you always get</h3>
+                <h3 className="font-display text-2xl font-bold text-cream mt-3">What you always get</h3>
               </div>
               <div className="space-y-4">
                 {DELIVERABLES.map(({ icon, text }) => (
@@ -214,12 +214,12 @@ function HowItWorks() {
                     <div className="w-7 h-7 rounded-lg bg-accent/15 border border-accent/25 flex items-center justify-center text-accent flex-shrink-0">
                       {icon}
                     </div>
-                    <span className="text-white/70 text-sm font-medium">{text}</span>
+                    <span className="text-cream/70 text-sm font-medium">{text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-10 pt-8 border-t border-white/8">
+              <div className="mt-10 pt-8 border-t border-cream/8">
                 <Link
                   to="/contact"
                   className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#0A0A0A] text-sm font-bold rounded-full hover:bg-accent-dim hover:shadow-[0_0_36px_rgba(212,168,83,0.4)] active:scale-[0.98] transition-all duration-200"

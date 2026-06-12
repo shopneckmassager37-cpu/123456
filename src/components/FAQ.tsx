@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import SectionHeader from './SectionHeader'
 
 const faqs = [
   {
@@ -44,13 +45,13 @@ function AccordionItem({ faq, isOpen, onToggle }: {
   }, [isOpen])
 
   return (
-    <div className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-accent/30 bg-accent/4' : 'border-white/8 bg-surface hover:border-white/15'}`}>
+    <div className={`border-b border-cream/[0.07] transition-colors duration-300 ${isOpen ? 'bg-surface/40' : 'hover:bg-surface/20'}`}>
       <button
         onClick={onToggle}
-        className="w-full px-7 py-5 flex items-center justify-between gap-4 text-left"
+        className="w-full px-2 md:px-4 py-6 flex items-center justify-between gap-4 text-left"
       >
-        <span className="text-white font-medium text-sm sm:text-base">{faq.q}</span>
-        <span className={`flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-accent/40 text-accent rotate-45' : 'border-white/15 text-white/40'}`}>
+        <span className="text-cream font-medium text-base sm:text-lg">{faq.q}</span>
+        <span className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-accent/50 text-accent rotate-45' : 'border-cream/15 text-cream/40'}`}>
           <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
@@ -60,8 +61,8 @@ function AccordionItem({ faq, isOpen, onToggle }: {
         ref={bodyRef}
         style={{ maxHeight: 0, opacity: 0, overflow: 'hidden', transition: 'max-height 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease' }}
       >
-        <div className="px-7 pb-6">
-          <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
+        <div className="px-2 md:px-4 pb-7">
+          <p className="text-cream/50 text-sm sm:text-base leading-relaxed max-w-2xl">{faq.a}</p>
         </div>
       </div>
     </div>
@@ -73,23 +74,16 @@ export default function FAQ() {
   const sectionRef = useScrollReveal()
 
   return (
-    <section id="faq" className="relative bg-[#0A0A0A] py-32 overflow-hidden" ref={sectionRef}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+    <section id="faq" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <SectionHeader
+          index="05"
+          label="FAQ"
+          title={<>Common <span className="text-outline">questions</span></>}
+          subtitle="Everything you need to know before we start working together."
+        />
 
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="mb-16 text-center reveal">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-            FAQ
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">
-            Common Questions
-          </h2>
-          <p className="text-white/40 text-lg leading-relaxed">
-            Everything you need to know before we start working together.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
+        <div className="border-t border-cream/[0.07]">
           {faqs.map((faq, i) => (
             <div key={i} className={`reveal reveal-d${Math.min(i + 1, 6)}`}>
               <AccordionItem

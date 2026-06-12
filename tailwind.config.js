@@ -7,6 +7,8 @@ export default {
         accent:       '#D4A853',
         'accent-dim': '#B8903D',
         'accent-glow':'#D4A85320',
+        cream:        '#EDEAE3',
+        'cream-dim':  '#A8A49B',
         surface:      '#111111',
         's2':         '#1A1A1A',
         's3':         '#242424',
@@ -48,6 +50,14 @@ export default {
           '0%, 100%': { opacity: '1' },
           '50%':      { opacity: '0.3' },
         },
+        'marquee': {
+          '0%':   { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%':   { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         'fade-up':        'fade-up 0.7s ease-out forwards',
@@ -59,6 +69,9 @@ export default {
         'spin-slow':      'spin-slow 8s linear infinite',
         'gradient-border':'gradient-border 4s ease infinite',
         'dot-pulse':      'dot-pulse 1.5s ease-in-out infinite',
+        'marquee':         'marquee 28s linear infinite',
+        'marquee-slow':    'marquee 45s linear infinite',
+        'marquee-reverse': 'marquee-reverse 36s linear infinite',
       },
     },
   },
