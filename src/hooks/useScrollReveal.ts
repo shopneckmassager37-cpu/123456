@@ -7,7 +7,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLElement>(): RefObjec
     const container = ref.current
     if (!container) return
 
-    const elements = container.querySelectorAll('.reveal, .reveal-left, .reveal-scale')
+    const elements = container.querySelectorAll('.reveal, .reveal-left, .reveal-scale, .reveal-mask')
 
     const observer = new IntersectionObserver(
       (entries) => {

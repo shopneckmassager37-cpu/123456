@@ -1,30 +1,8 @@
-import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import PageHero from '../components/PageHero'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-
-function useRevealSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const container = ref.current
-    if (!container) return
-    const elements = container.querySelectorAll('.reveal, .reveal-left, .reveal-scale')
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-    )
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-  return ref
-}
 
 const QUICK_ANSWERS = [
   {
@@ -77,61 +55,33 @@ const WAYS_TO_REACH = [
   },
 ]
 
-function ContactPageHero() {
-  const ref = useRevealSection()
-  return (
-    <section className="relative bg-[#0A0A0A] pt-40 pb-12 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-accent/[0.05] rounded-full blur-[150px]" />
-      </div>
-      <div
-        className="absolute inset-0 opacity-15"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #EDEAE310 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-        }}
-      />
-      <div className="relative max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 mb-8 reveal">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-dot-pulse" />
-          <span className="text-green-400 text-xs font-semibold tracking-[0.18em] uppercase">Open for projects</span>
-        </div>
-        <h1 className="display-xl font-display font-bold text-cream mb-6 reveal">
-          Let's build <span className="gradient-text">together.</span>
-        </h1>
-        <p className="text-cream/45 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal">
-          Got a project in mind? Send a message or drop me an email directly.
-          Free consultation, no obligations.
-        </p>
-      </div>
-    </section>
-  )
-}
-
 function WaysToReach() {
-  const ref = useRevealSection()
+  const ref = useScrollReveal<HTMLElement>()
   return (
-    <section className="relative bg-[#0A0A0A] py-20 overflow-hidden" ref={ref}>
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <section className="relative bg-[#0A0A0A] overflow-hidden" ref={ref}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
           {WAYS_TO_REACH.map((w, i) => (
             <div
               key={w.label}
-              className={`reveal reveal-d${i + 1} group rounded-2xl border border-cream/8 bg-[#111] p-6 hover:border-accent/30 transition-all duration-300`}
+              className={`reveal reveal-d${i + 1} group bg-[#0A0A0A] p-8 md:p-10 hover:bg-surface transition-colors duration-300`}
             >
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-4 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                {w.icon}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-11 h-11 rounded-xl bg-cream/[0.04] border border-cream/10 flex items-center justify-center text-accent group-hover:border-accent/40 group-hover:-translate-y-1 transition-all duration-300">
+                  {w.icon}
+                </div>
+                <span className="section-index text-cream/15 text-sm font-semibold group-hover:text-accent/40 transition-colors duration-300">0{i + 1}</span>
               </div>
-              <div className="text-cream/40 text-xs font-semibold uppercase tracking-wider mb-1">{w.label}</div>
+              <div className="text-cream/40 text-xs font-semibold uppercase tracking-[0.2em] mb-2">{w.label}</div>
               {w.href ? (
                 <a
                   href={w.href}
-                  className="block text-cream text-sm font-semibold hover:text-accent transition-colors duration-200 mb-1 break-all"
+                  className="link-underline inline-block text-cream text-base md:text-lg font-semibold hover:text-accent transition-colors duration-200 mb-1 break-all"
                 >
                   {w.value}
                 </a>
               ) : (
-                <div className="text-cream text-sm font-semibold mb-1">{w.value}</div>
+                <div className="text-cream text-base md:text-lg font-semibold mb-1">{w.value}</div>
               )}
               <div className="text-cream/30 text-xs">{w.sub}</div>
             </div>
@@ -143,36 +93,42 @@ function WaysToReach() {
 }
 
 function QuickFAQ() {
-  const ref = useRevealSection()
+  const ref = useScrollReveal<HTMLElement>()
   return (
-    <section className="relative bg-[#0A0A0A] py-24 overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-12 reveal">
-          <span className="inline-block text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4">Quick Answers</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-cream tracking-tight">
-            Before you reach out
-          </h2>
+    <section className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={ref}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <div className="flex items-center gap-3 mb-6 reveal">
+          <span className="section-index text-accent text-sm font-semibold tracking-widest">(07)</span>
+          <span className="w-8 h-px bg-accent/40" />
+          <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Quick Answers</span>
         </div>
+        <h2 className="display-lg font-display font-bold text-cream reveal mb-14">
+          Before you <span className="text-outline">reach out</span>
+        </h2>
 
-        <div className="space-y-4">
+        <div className="border-t border-cream/[0.07]">
           {QUICK_ANSWERS.map((item, i) => (
             <div
               key={item.q}
-              className={`reveal reveal-d${i + 1} rounded-2xl border border-cream/8 bg-[#111] p-7 hover:border-accent/25 transition-colors duration-300`}
+              className={`reveal reveal-d${i + 1} group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 border-b border-cream/[0.07] px-2 md:px-4 hover:bg-surface/40 transition-colors duration-300`}
             >
-              <h3 className="font-display text-base font-bold text-cream mb-3">{item.q}</h3>
-              <p className="text-cream/50 text-sm leading-relaxed">{item.a}</p>
+              <div className="md:col-span-5 flex items-start gap-5">
+                <span className="section-index font-display text-2xl font-bold text-cream/12 group-hover:text-accent transition-colors duration-300 leading-none">
+                  0{i + 1}
+                </span>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-cream leading-snug">{item.q}</h3>
+              </div>
+              <div className="md:col-span-7">
+                <p className="text-cream/50 text-base leading-relaxed max-w-xl">{item.a}</p>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10 reveal">
+        <div className="mt-10 reveal">
           <p className="text-cream/35 text-sm">
             More questions?{' '}
-            <Link to="/about" className="text-accent hover:text-cream transition-colors duration-200 font-medium">
+            <Link to="/about" className="link-underline text-accent hover:text-cream transition-colors duration-200 font-medium">
               Check the full FAQ →
             </Link>
           </p>
@@ -185,7 +141,13 @@ function QuickFAQ() {
 export default function ContactPage() {
   return (
     <>
-      <ContactPageHero />
+      <PageHero
+        label="Open for projects"
+        meta="Free consultation"
+        dot="green"
+        lines={["Let's build", <span key="l2"><span className="gradient-text">together.</span></span>]}
+        sub="Got a project in mind? Send a message or drop me an email directly. Free consultation, no obligations."
+      />
       <WaysToReach />
       <Contact />
       <QuickFAQ />
