@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'DanDev <onboarding@resend.dev>',
       to:   'danielgitlin2011@gmail.com',
       replyTo: email,
@@ -54,9 +54,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `,
     })
 
+    if (error) {
+      console.error('Resend error:', error)
+      return res.status(500).json({ error: error.message })
+    }
+
     return res.status(200).json({ success: true })
   } catch (err) {
-    console.error('Resend error:', err)
+    console.error('Unexpected error:', err)
     return res.status(500).json({ error: 'Failed to send email' })
   }
 }
