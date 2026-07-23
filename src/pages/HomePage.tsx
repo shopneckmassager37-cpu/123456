@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Marquee from '../components/Marquee'
 import MagneticButton from '../components/MagneticButton'
+import SEO from '../components/SEO'
 
 const CHEFALEH_URL = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL       = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
@@ -356,6 +357,11 @@ function HomeCTA() {
 export default function HomePage() {
   return (
     <>
+      <SEO
+        title="Daniel | Full-Stack Developer — Web & Mobile Apps"
+        description="Full-stack developer specializing in React, React Native, and Node.js. I build fast, polished web and mobile products from scratch — ready to ship."
+        path="/"
+      />
       <Hero />
       <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
         <Marquee items={['Websites', 'Mobile Apps', 'UI Design', 'Web Apps', 'Launch']} />

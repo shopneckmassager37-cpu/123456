@@ -3,6 +3,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import PageHero from '../components/PageHero'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const QUICK_ANSWERS = [
   {
@@ -141,6 +142,11 @@ function QuickFAQ() {
 export default function ContactPage() {
   return (
     <>
+      <SEO
+        title="Contact | Start Your Project — dandev"
+        description="Got a project in mind? Send a message or drop me an email directly. Free consultation, no obligations."
+        path="/contact"
+      />
       <PageHero
         label="Open for projects"
         meta="Free consultation"

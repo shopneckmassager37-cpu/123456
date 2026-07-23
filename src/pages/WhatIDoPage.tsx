@@ -7,6 +7,7 @@ import Expertise from '../components/Expertise'
 import Services from '../components/Services'
 import BigCTA from '../components/BigCTA'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const CAPABILITIES = [
   { name: 'Websites',        icon: '🌐' },
@@ -117,6 +118,11 @@ function Deliverables() {
 export default function WhatIDoPage() {
   return (
     <>
+      <SEO
+        title="What I Do | Web & Mobile App Development Services — dandev"
+        description="Websites, web apps, and mobile apps — designed, built, and launched by one person who owns the whole thing. Explore my full range of development services."
+        path="/what-i-do"
+      />
       <PageHero
         label="Services & Expertise"
         meta="What I Do"

@@ -6,6 +6,7 @@ import Work from '../components/Work'
 import StatsBand from '../components/StatsBand'
 import BigCTA from '../components/BigCTA'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const PILLARS = [
   {
@@ -85,6 +86,11 @@ function QualityPillars() {
 export default function WorkPage() {
   return (
     <>
+      <SEO
+        title="My Work | Web & Mobile App Portfolio — dandev"
+        description="Real projects, live in production and used by real people. Browse a portfolio of websites and apps built from concept to launch."
+        path="/work"
+      />
       <PageHero
         label="Portfolio"
         meta="Selected Work"

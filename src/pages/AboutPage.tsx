@@ -6,6 +6,7 @@ import Process from '../components/Process'
 import FAQ from '../components/FAQ'
 import BigCTA from '../components/BigCTA'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const LOGO_URL = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/0c8a8e3df_2026-05-27193417.png'
 
@@ -154,6 +155,11 @@ function CoreValues() {
 export default function AboutPage() {
   return (
     <>
+      <SEO
+        title="About Daniel | Full-Stack Developer — dandev"
+        description="How I work, what I stand for, and what you can expect when we build something together. Transparent, fast, and yours to keep."
+        path="/about"
+      />
       <PageHero
         label="About"
         meta="The human behind it"

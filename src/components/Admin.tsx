@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import SEO from './SEO'
 
 type Message = {
   id: string
@@ -44,36 +45,41 @@ export default function Admin() {
 
   if (!authed) {
     return (
-      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
-        <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-surface p-8 flex flex-col gap-5">
-          <div className="text-center">
-            <div className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3">Admin Panel</div>
-            <h2 className="font-display text-2xl font-bold text-white">Sign In</h2>
+      <>
+        <SEO title="Admin" description="Admin panel." path="/admin" noindex />
+        <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
+          <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-surface p-8 flex flex-col gap-5">
+            <div className="text-center">
+              <div className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3">Admin Panel</div>
+              <h2 className="font-display text-2xl font-bold text-white">Sign In</h2>
+            </div>
+            <div>
+              <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={e => { setPassword(e.target.value); setPwError(false) }}
+                onKeyDown={e => e.key === 'Enter' && login()}
+                placeholder="Enter admin password"
+                className={`w-full bg-[#0A0A0A] border rounded-xl px-4 py-3 text-white placeholder-white/20 text-sm outline-none transition-all focus:ring-1 ${pwError ? 'border-red-500/50 focus:ring-red-500/20' : 'border-white/10 focus:border-accent/50 focus:ring-accent/20'}`}
+              />
+              {pwError && <p className="mt-1.5 text-red-400 text-xs">Incorrect password.</p>}
+            </div>
+            <button onClick={login} className="w-full py-3 bg-accent text-[#0A0A0A] font-semibold rounded-full hover:bg-accent-dim transition-all">
+              Enter
+            </button>
           </div>
-          <div>
-            <label className="block text-white/45 text-xs font-medium mb-2 uppercase tracking-wider">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={e => { setPassword(e.target.value); setPwError(false) }}
-              onKeyDown={e => e.key === 'Enter' && login()}
-              placeholder="Enter admin password"
-              className={`w-full bg-[#0A0A0A] border rounded-xl px-4 py-3 text-white placeholder-white/20 text-sm outline-none transition-all focus:ring-1 ${pwError ? 'border-red-500/50 focus:ring-red-500/20' : 'border-white/10 focus:border-accent/50 focus:ring-accent/20'}`}
-            />
-            {pwError && <p className="mt-1.5 text-red-400 text-xs">Incorrect password.</p>}
-          </div>
-          <button onClick={login} className="w-full py-3 bg-accent text-[#0A0A0A] font-semibold rounded-full hover:bg-accent-dim transition-all">
-            Enter
-          </button>
         </div>
-      </div>
+      </>
     )
   }
 
   const unread = messages.filter(m => !m.read).length
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pt-20 px-6 pb-16">
+    <>
+      <SEO title="Admin" description="Admin panel." path="/admin" noindex />
+      <div className="min-h-screen bg-[#0A0A0A] pt-20 px-6 pb-16">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-10">
           <div>
@@ -160,5 +166,6 @@ export default function Admin() {
         )}
       </div>
     </div>
+    </>
   )
 }
