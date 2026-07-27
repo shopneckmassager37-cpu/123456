@@ -34,20 +34,20 @@ const services = [
   },
 ]
 
-export default function Services() {
+export default function Services({ index = '02' }: { index?: string }) {
   const sectionRef = useScrollReveal()
 
   return (
-    <section id="services" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
+    <section id="services" className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <SectionHeader
-          index="02"
+          index={index}
           label="Services"
-          title={<>What I <span className="text-outline">build</span></>}
+          title={<>What I build</>}
           subtitle="Whatever you need built — I can take it from idea to finished product."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
           {services.map((s, i) => (
             <div
               key={s.title}
@@ -61,11 +61,11 @@ export default function Services() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-cream mb-2">{s.title}</h3>
-                <p className="text-cream/45 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-cream/60 text-sm leading-relaxed">{s.desc}</p>
               </div>
               <div className="flex flex-wrap gap-2 mt-auto pt-3 border-t border-cream/[0.07]">
                 {s.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-cream/30 font-medium group-hover:text-cream/55 transition-colors">
+                  <span key={tag} className="text-xs text-cream/55 font-medium group-hover:text-cream/85 transition-colors">
                     {tag}
                   </span>
                 ))}

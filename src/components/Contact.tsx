@@ -18,7 +18,7 @@ const SUBJECTS = [
 
 const API_ENDPOINT = '/api/contact'
 
-export default function Contact() {
+export default function Contact({ index = '01' }: { index?: string }) {
   const sectionRef = useScrollReveal()
 
   const [form, setForm]     = useState<FormState>({ name: '', email: '', subject: 'Web Development Project', message: '' })
@@ -65,26 +65,26 @@ export default function Contact() {
     }
   }
 
-  const inputBase   = 'w-full bg-[#0D0D0D] border rounded-xl px-4 py-3 text-cream placeholder-cream/20 text-sm outline-none transition-all duration-200 focus:ring-1'
+  const inputBase   = 'w-full bg-[#0D0D0D] border rounded-xl px-4 py-3 text-cream placeholder-cream/50 text-sm outline-none transition-all duration-200 focus:ring-1'
   const inputNormal = `${inputBase} border-cream/10 focus:border-accent/50 focus:ring-accent/20 hover:border-cream/20`
   const inputError  = `${inputBase} border-red-500/50 focus:border-red-500/70 focus:ring-red-500/20`
 
   return (
-    <section id="contact" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
+    <section id="contact" className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-3xl mx-auto px-6">
 
         {/* Header */}
         <div className="text-center mb-12 reveal">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="section-index text-accent text-sm font-semibold tracking-widest">(06)</span>
+            <span className="section-index text-accent text-sm font-semibold tracking-widest">({index})</span>
             <span className="w-8 h-px bg-accent/40" />
-            <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Get In Touch</span>
+            <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Get In Touch</span>
           </div>
           <h2 className="display-lg font-display font-bold text-cream mb-6 leading-tight">
             Let's build something<br />
-            <span className="text-outline">great together.</span>
+            great together.
           </h2>
-          <p className="text-cream/40 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+          <p className="text-cream/60 text-lg leading-relaxed max-w-xl mx-auto mb-8">
             Have a project in mind? Whether it's a simple website, a full web app,
             or an idea you want to bring to life — I'd love to hear about it.
           </p>
@@ -103,7 +103,7 @@ export default function Contact() {
           </div>
 
           {/* Trust row */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-cream/35">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-cream/55">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-dot-pulse" />
               Free consultation
@@ -128,7 +128,7 @@ export default function Contact() {
               </svg>
             </div>
             <h3 className="font-display text-2xl font-bold text-cream">Message Sent!</h3>
-            <p className="text-cream/45 text-sm leading-relaxed max-w-xs">
+            <p className="text-cream/60 text-sm leading-relaxed max-w-xs">
               Thanks for reaching out. I'll get back to you within 24 hours.
             </p>
             <button
@@ -153,7 +153,7 @@ export default function Contact() {
 
               {/* Subject pills */}
               <div>
-                <label className="block text-cream/45 text-xs font-medium mb-3 uppercase tracking-wider">
+                <label className="block text-cream/60 text-xs font-medium mb-3 uppercase tracking-wider">
                   What can I help with?
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -165,7 +165,7 @@ export default function Contact() {
                       className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
                         form.subject === value
                           ? 'bg-accent/15 border-accent/50 text-accent'
-                          : 'border-cream/10 text-cream/40 hover:border-cream/25 hover:text-cream/70'
+                          : 'border-cream/10 text-cream/60 hover:border-cream/25 hover:text-cream/70'
                       }`}
                     >
                       {label}
@@ -177,7 +177,7 @@ export default function Contact() {
               {/* Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-cream/45 text-xs font-medium mb-2 uppercase tracking-wider">Name</label>
+                  <label className="block text-cream/60 text-xs font-medium mb-2 uppercase tracking-wider">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -189,7 +189,7 @@ export default function Contact() {
                   {errors.name && <p className="mt-1.5 text-red-400 text-xs">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-cream/45 text-xs font-medium mb-2 uppercase tracking-wider">Email</label>
+                  <label className="block text-cream/60 text-xs font-medium mb-2 uppercase tracking-wider">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -204,7 +204,7 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className="block text-cream/45 text-xs font-medium mb-2 uppercase tracking-wider">
+                <label className="block text-cream/60 text-xs font-medium mb-2 uppercase tracking-wider">
                   Tell me about your project
                 </label>
                 <textarea
@@ -236,7 +236,7 @@ export default function Contact() {
                 )}
               </button>
 
-              <p className="text-center text-cream/20 text-xs">
+              <p className="text-center text-cream/50 text-xs">
                 No spam, no commitment. Just a conversation.
               </p>
             </form>

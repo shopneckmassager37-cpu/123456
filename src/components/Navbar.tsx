@@ -47,7 +47,14 @@ export default function Navbar() {
             aria-label="dandev home"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img src={LOGO_URL} alt="dandev logo" className="h-9 w-9 rounded-full object-cover" />
+            <img
+              src={LOGO_URL}
+              alt="dandev logo"
+              width={36}
+              height={36}
+              decoding="async"
+              className="h-9 w-9 rounded-full object-cover"
+            />
             <span className="font-display text-base font-bold tracking-tight text-cream hidden sm:block">
               DAN<span className="text-accent">DEV</span>
             </span>
@@ -102,7 +109,7 @@ export default function Navbar() {
               to={path}
               className={`flex items-baseline gap-4 text-5xl font-display font-bold py-4 transition-all duration-300 border-b border-cream/[0.07] ${
                 menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'
-              } ${location.pathname === path ? 'text-cream' : 'text-cream/35 hover:text-cream'}`}
+              } ${location.pathname === path ? 'text-cream' : 'text-cream/55 hover:text-cream'}`}
               style={{ transitionDelay: menuOpen ? `${i * 60 + 100}ms` : '0ms' }}
             >
               <span className="text-accent/50 text-base section-index">0{i + 1}</span>

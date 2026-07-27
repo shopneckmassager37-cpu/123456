@@ -41,7 +41,7 @@ const VALUES = [
 ]
 
 const STORY = [
-  "I'm a full-stack developer who builds websites and apps for clients around the world. I've been doing this for over two years and I genuinely love what I do.",
+  "I'm a full-stack developer who builds websites and web apps for clients around the world. I've been doing this for over two years and I genuinely love what I do.",
   'I started building because I wanted to create products — not just complete tasks. Every project I take on is something I believe in: a real user, a real problem, and a real purpose.',
   'What sets me apart is that I care about the entire product — not just my slice of it. I think about the experience, the performance, and the business goals, not just what I was asked to build.',
   'I work remotely and move fast. Most projects are live within 1–2 weeks, and I stay in close contact with every client throughout the process.',
@@ -61,7 +61,15 @@ function AboutDaniel() {
             <div className="lg:sticky lg:top-32 flex justify-center lg:justify-start reveal-scale">
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl border border-cream/10 bg-surface overflow-hidden">
-                  <img src={LOGO_URL} alt="Daniel" className="w-full h-full object-cover" />
+                  <img
+                    src={LOGO_URL}
+                    alt="Daniel"
+                    width={320}
+                    height={320}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* floating badge */}
@@ -84,7 +92,7 @@ function AboutDaniel() {
             <div className="flex items-center gap-3 mb-6 reveal">
               <span className="section-index text-accent text-sm font-semibold tracking-widest">(01)</span>
               <span className="w-8 h-px bg-accent/40" />
-              <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Who I am</span>
+              <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Who I am</span>
             </div>
             <h2 className="display-lg font-display font-bold text-cream reveal mb-10">
               Hi, I'm <span className="gradient-text">Daniel.</span>
@@ -118,12 +126,12 @@ function AboutDaniel() {
 function CoreValues() {
   const ref = useScrollReveal<HTMLElement>()
   return (
-    <section className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={ref}>
+    <section className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <SectionHeader
           index="02"
           label="Values"
-          title={<>How I <span className="text-outline">work</span></>}
+          title={<>How I work</>}
           subtitle="Three principles that guide every project I take on."
         />
 
@@ -141,7 +149,7 @@ function CoreValues() {
               </div>
               <div className="mt-auto">
                 <h3 className="font-display text-xl font-bold text-cream mb-3">{v.title}</h3>
-                <p className="text-cream/45 text-sm leading-relaxed">{v.desc}</p>
+                <p className="text-cream/60 text-sm leading-relaxed">{v.desc}</p>
               </div>
             </div>
           ))}
@@ -162,8 +170,8 @@ export default function AboutPage() {
       />
       <AboutDaniel />
       <CoreValues />
-      <Process />
-      <FAQ />
+      <Process index="03" />
+      <FAQ index="04" />
       <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
         <Marquee items={['Transparent', 'Fast', 'Yours to keep']} reverse speed="slow" />
       </div>

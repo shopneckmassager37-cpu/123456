@@ -61,7 +61,7 @@ export default function Hero() {
             <span className="w-2 h-2 rounded-full bg-accent animate-dot-pulse" />
             <span className="text-cream/50 text-xs font-medium tracking-[0.2em] uppercase">Available for new projects</span>
           </div>
-          <span className="text-cream/30 text-xs font-medium tracking-[0.2em] uppercase hidden sm:block section-index">
+          <span className="text-cream/55 text-xs font-medium tracking-[0.2em] uppercase hidden sm:block section-index">
             Full-Stack Developer
           </span>
         </div>
@@ -85,14 +85,14 @@ export default function Hero() {
         {/* bottom row: sub + CTAs */}
         <div className="mt-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
           <p
-            className="text-cream/45 text-lg md:text-xl max-w-md leading-relaxed transition-all duration-700"
+            className="text-cream/60 text-lg md:text-xl max-w-md leading-relaxed transition-all duration-700"
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? 'translateY(0)' : 'translateY(16px)',
               transitionDelay: '450ms',
             }}
           >
-            I build websites and apps — from the first idea to the finished product,
+            I build websites and web apps — from the first idea to the finished product,
             live and ready to use. Fast, clean, and exactly how you imagined it.
           </p>
 
@@ -119,7 +119,7 @@ export default function Hero() {
         className="absolute bottom-8 left-6 md:left-10 flex items-center gap-3 transition-opacity duration-700"
         style={{ opacity: mounted ? 1 : 0, transitionDelay: '700ms' }}
       >
-        <span className="text-cream/25 text-[10px] tracking-[0.25em] uppercase font-medium">Scroll</span>
+        <span className="text-cream/50 text-[10px] tracking-[0.25em] uppercase font-medium">Scroll</span>
         <span className="w-10 h-px bg-cream/20" />
       </div>
     </section>

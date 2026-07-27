@@ -46,14 +46,14 @@ export default function Footer() {
               <Link
                 key={path}
                 to={path}
-                className="link-underline text-cream/40 hover:text-cream text-sm font-medium transition-colors duration-200"
+                className="link-underline text-cream/60 hover:text-cream text-sm font-medium transition-colors duration-200"
               >
                 {label}
               </Link>
             ))}
           </div>
 
-          <p className="text-cream/25 text-xs tracking-wide">
+          <p className="text-cream/50 text-xs tracking-wide">
             © {new Date().getFullYear()} dandev · Daniel
           </p>
         </div>

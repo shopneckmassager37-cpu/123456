@@ -39,7 +39,7 @@ function CapabilitiesGrid() {
         <SectionHeader
           index="03"
           label="Capabilities"
-          title={<>Anything you <span className="text-outline">need</span></>}
+          title={<>Anything you need</>}
           subtitle="Whether it's a simple website or a complex product with custom features — I've built it."
         />
 
@@ -55,6 +55,8 @@ function CapabilitiesGrid() {
               </span>
             </div>
           ))}
+          {/* 11 items leave exactly one orphan slot at every breakpoint (2/3/6 cols) */}
+          <div className="bg-[#0A0A0A]" aria-hidden="true" />
         </div>
       </div>
     </section>
@@ -64,7 +66,7 @@ function CapabilitiesGrid() {
 function Deliverables() {
   const ref = useScrollReveal<HTMLElement>()
   return (
-    <section className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden border-t border-cream/[0.07]" ref={ref}>
+    <section className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden border-t border-cream/[0.07]" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
@@ -74,12 +76,12 @@ function Deliverables() {
               <div className="flex items-center gap-3 mb-6 reveal">
                 <span className="section-index text-accent text-sm font-semibold tracking-widest">(04)</span>
                 <span className="w-8 h-px bg-accent/40" />
-                <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Every project includes</span>
+                <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Every project includes</span>
               </div>
               <h2 className="display-lg font-display font-bold text-cream reveal mb-8">
-                What you <br /><span className="text-outline">always get.</span>
+                What you <br />always get.
               </h2>
-              <p className="text-cream/40 text-lg leading-relaxed max-w-sm reveal mb-10">
+              <p className="text-cream/60 text-lg leading-relaxed max-w-sm reveal mb-10">
                 No matter the size of the project — these come standard. Always.
               </p>
               <MagneticButton to="/contact" variant="fill">Start a Project →</MagneticButton>

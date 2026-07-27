@@ -181,8 +181,68 @@
   /* Animated glow card border (kept subtle, used sparingly) */
   .glow-card {
     position: relative;
-    background: #0E0E0E;
+    /* Sits on the #0D0D0D contact section — needs to read as raised */
+    background: #141414;
     border-radius: 1rem;
     border: 1px solid rgba(237,234,227,0.08);
+  }
+
+  /* Alternating section tone — gives the page vertical rhythm */
+  .section-base { background-color: #0A0A0A; }
+  .section-alt  { background-color: #0D0D0D; }
+}
+
+/* ---- Keyboard focus ring ----
+   Compound selector so it outranks Tailwind's `outline-none` utility.
+   Form fields opt out: they already show an accent border + ring on focus. */
+html :focus-visible {
+  outline: 2px solid #D4A853;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+html input:focus-visible,
+html textarea:focus-visible,
+html select:focus-visible {
+  outline: none;
+}
+
+/* ---- Reduced motion ----
+   The site leans on continuous motion (marquees, shimmer, parallax,
+   pulses, reveals). Honour the OS preference and land everything in
+   its final, visible state. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Reveals must not depend on a transition to become visible */
+  .reveal,
+  .reveal-left,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal-mask > span {
+    transform: none !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Shimmer would otherwise leave the text mid-gradient */
+  .gradient-text {
+    animation: none !important;
+    background-position: 0 center;
   }
 }

@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import SectionHeader from './SectionHeader'
+import ProjectImage from './ProjectImage'
 
 const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
@@ -53,14 +54,14 @@ const PROJECTS = [
   },
 ]
 
-export default function Work() {
+export default function Work({ index = '01' }: { index?: string }) {
   const sectionRef = useScrollReveal()
 
   return (
     <section id="work" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <SectionHeader
-          index="03"
+          index={index}
           label="Selected Work"
           title={<>Products I've <span className="text-outline">built</span></>}
           subtitle="Real projects, shipped to production. From concept to launch."
@@ -85,11 +86,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
 
       {/* Screenshot / Placeholder */}
-      <div className="relative overflow-hidden w-full" style={{ aspectRatio: '16/8' }}>
+      <div className="relative overflow-hidden w-full bg-s2" style={{ aspectRatio: '16/8' }}>
         {project.screenshotUrl ? (
-          <img
+          <ProjectImage
             src={project.screenshotUrl}
             alt={`${project.name} — website screenshot`}
+            fallbackLabel={project.domain}
+            width={1280}
+            height={640}
+            eager={index === 0}
             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
           />
         ) : (
@@ -159,7 +164,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 rounded-full border border-cream/10 text-cream/40 text-xs font-medium"
+                className="px-3 py-1 rounded-full border border-cream/10 text-cream/60 text-xs font-medium"
               >
                 {tag}
               </span>

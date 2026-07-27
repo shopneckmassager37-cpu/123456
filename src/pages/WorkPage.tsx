@@ -49,12 +49,12 @@ const PILLARS = [
 function QualityPillars() {
   const ref = useScrollReveal<HTMLElement>()
   return (
-    <section className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={ref}>
+    <section className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <SectionHeader
-          index="04"
+          index="02"
           label="Quality"
-          title={<>What goes into <span className="text-outline">every build</span></>}
+          title={<>What goes into every build</>}
           subtitle="Every project I ship meets the same high bar — whether it's a landing page or a full product."
         />
 
@@ -72,7 +72,7 @@ function QualityPillars() {
               </div>
               <div className="mt-auto">
                 <h3 className="font-display text-lg font-bold text-cream mb-2">{p.title}</h3>
-                <p className="text-cream/45 text-sm leading-relaxed">{p.desc}</p>
+                <p className="text-cream/60 text-sm leading-relaxed">{p.desc}</p>
               </div>
             </div>
           ))}
@@ -94,7 +94,7 @@ export default function WorkPage() {
       <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
         <Marquee items={['Real projects', 'Live products', 'Shipped']} />
       </div>
-      <Work />
+      <Work index="01" />
       <QualityPillars />
       <StatsBand
         stats={[

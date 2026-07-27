@@ -10,6 +10,12 @@ function StatItem({ value, suffix, label, desc }: Stat) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
+    // A counting animation is exactly the kind of motion to skip — and it also
+    // guards against the number being stranded at 0 if the observer never fires.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(value)
+      return
+    }
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) {
         const start = performance.now()
@@ -34,8 +40,8 @@ function StatItem({ value, suffix, label, desc }: Stat) {
       <div className="font-display text-5xl md:text-7xl font-bold text-cream mb-3 tabular-nums leading-none">
         {count}<span className="text-accent">{suffix}</span>
       </div>
-      <div className="text-cream/45 text-sm font-semibold tracking-wide">{label}</div>
-      {desc && <div className="text-cream/25 text-xs mt-1">{desc}</div>}
+      <div className="text-cream/60 text-sm font-semibold tracking-wide">{label}</div>
+      {desc && <div className="text-cream/50 text-xs mt-1">{desc}</div>}
     </div>
   )
 }

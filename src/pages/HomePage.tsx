@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Marquee from '../components/Marquee'
 import MagneticButton from '../components/MagneticButton'
+import ProjectImage from '../components/ProjectImage'
 
 const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
@@ -102,12 +103,12 @@ function ScrollLitText({ text, className = '' }: { text: string; className?: str
 /* ---- Big editorial statement ---- */
 function Statement() {
   return (
-    <section className="relative bg-[#0A0A0A] py-28 md:py-40 overflow-hidden">
+    <section className="relative bg-[#0D0D0D] py-28 md:py-40 overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <div className="flex items-center gap-3 mb-10">
-          <span className="section-index text-accent text-sm font-semibold tracking-widest">(00)</span>
+          <span className="section-index text-accent text-sm font-semibold tracking-widest">(01)</span>
           <span className="w-8 h-px bg-accent/40" />
-          <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">The idea</span>
+          <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">The idea</span>
         </div>
         <ScrollLitText
           text="I design and build digital products from the first idea to the finished thing — live, fast, and exactly how you pictured it. One person, full ownership, zero handoffs."
@@ -127,9 +128,9 @@ function FeaturedWork() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-6 reveal">
-              <span className="section-index text-accent text-sm font-semibold tracking-widest">(01)</span>
+              <span className="section-index text-accent text-sm font-semibold tracking-widest">(02)</span>
               <span className="w-8 h-px bg-accent/40" />
-              <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Featured Work</span>
+              <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Featured Work</span>
             </div>
             <h2 className="display-lg font-display font-bold text-cream reveal">
               Selected <span className="text-outline">projects</span>
@@ -152,10 +153,13 @@ function FeaturedWork() {
               rel="noopener noreferrer"
               className={`reveal reveal-d${i + 1} group relative rounded-2xl border border-cream/[0.08] overflow-hidden hover:border-cream/25 transition-all duration-500`}
             >
-              <div className="relative overflow-hidden" style={{ aspectRatio: '16/10' }}>
-                <img
+              <div className="relative overflow-hidden bg-s2" style={{ aspectRatio: '16/10' }}>
+                <ProjectImage
                   src={p.img}
-                  alt={p.name}
+                  alt={`${p.name} — website screenshot`}
+                  fallbackLabel={p.domain}
+                  width={1280}
+                  height={800}
                   className="w-full h-full object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
                 />
                 {/* dark gradient + hover overlay */}
@@ -174,11 +178,11 @@ function FeaturedWork() {
               <div className="p-6 md:p-7 flex items-end justify-between gap-4">
                 <div>
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-cream leading-none mb-2">{p.name}</h3>
-                  <p className="text-cream/40 text-sm">{p.sub}</p>
+                  <p className="text-cream/60 text-sm">{p.sub}</p>
                 </div>
                 <div className="flex flex-wrap gap-2 justify-end max-w-[55%]">
                   {p.tags.map((t) => (
-                    <span key={t} className="px-2.5 py-1 rounded-full border border-cream/10 text-cream/40 text-xs font-medium whitespace-nowrap">{t}</span>
+                    <span key={t} className="px-2.5 py-1 rounded-full border border-cream/10 text-cream/60 text-xs font-medium whitespace-nowrap">{t}</span>
                   ))}
                 </div>
               </div>
@@ -194,7 +198,7 @@ function FeaturedWork() {
 function Approach() {
   const ref = useRevealSection()
   return (
-    <section className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden border-t border-cream/[0.07]" ref={ref}>
+    <section className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden border-t border-cream/[0.07]" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
@@ -202,14 +206,14 @@ function Approach() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <div className="flex items-center gap-3 mb-6 reveal">
-                <span className="section-index text-accent text-sm font-semibold tracking-widest">(02)</span>
+                <span className="section-index text-accent text-sm font-semibold tracking-widest">(03)</span>
                 <span className="w-8 h-px bg-accent/40" />
-                <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">How I work</span>
+                <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">How I work</span>
               </div>
               <h2 className="display-lg font-display font-bold text-cream reveal mb-8">
-                A simple way <br /><span className="text-outline">to build.</span>
+                A simple way <br />to build.
               </h2>
-              <p className="text-cream/40 text-lg leading-relaxed max-w-sm reveal mb-10">
+              <p className="text-cream/60 text-lg leading-relaxed max-w-sm reveal mb-10">
                 No agencies, no endless meetings. Four clear steps from your idea to a finished, live product.
               </p>
               <MagneticButton to="/about" variant="outline">The full process →</MagneticButton>
@@ -230,7 +234,7 @@ function Approach() {
                     </span>
                     <div>
                       <h3 className="font-display text-2xl md:text-3xl font-bold text-cream mb-3">{s.title}</h3>
-                      <p className="text-cream/45 text-base leading-relaxed max-w-md">{s.desc}</p>
+                      <p className="text-cream/60 text-base leading-relaxed max-w-md">{s.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -252,12 +256,12 @@ function ServicesStrip() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-6 reveal">
-              <span className="section-index text-accent text-sm font-semibold tracking-widest">(03)</span>
+              <span className="section-index text-accent text-sm font-semibold tracking-widest">(04)</span>
               <span className="w-8 h-px bg-accent/40" />
-              <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Services</span>
+              <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Services</span>
             </div>
             <h2 className="display-lg font-display font-bold text-cream reveal">
-              Everything, <span className="text-outline">one roof.</span>
+              Everything, one roof.
             </h2>
           </div>
           <Link to="/what-i-do" className="reveal flex-shrink-0 link-underline inline-flex items-center gap-2 text-cream/60 hover:text-cream text-sm font-medium transition-colors duration-200">
@@ -265,7 +269,7 @@ function ServicesStrip() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
           {SERVICES_PREVIEW.map((s, i) => (
             <div
               key={s.title}
@@ -274,7 +278,7 @@ function ServicesStrip() {
               <span className="section-index text-cream/15 text-sm font-semibold group-hover:text-accent transition-colors duration-300">0{i + 1}</span>
               <div className="mt-auto">
                 <h3 className="font-display text-xl font-bold text-cream mb-2 group-hover:-translate-y-0.5 transition-transform duration-300">{s.title}</h3>
-                <p className="text-cream/45 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-cream/60 text-sm leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}
@@ -291,6 +295,12 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
   useEffect(() => {
     const el = ref.current
     if (!el) return
+    // See StatsBand: skip the count-up under reduced motion, and never leave
+    // the number stranded at 0 if the observer never fires.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(value)
+      return
+    }
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) {
         const start = performance.now()
@@ -314,7 +324,7 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
       <div className="font-display text-5xl md:text-7xl font-bold text-cream mb-3 tabular-nums leading-none">
         {count}<span className="text-accent">{suffix}</span>
       </div>
-      <div className="text-cream/35 text-sm font-medium tracking-wide">{label}</div>
+      <div className="text-cream/55 text-sm font-medium tracking-wide">{label}</div>
     </div>
   )
 }

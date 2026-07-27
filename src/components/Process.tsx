@@ -24,16 +24,16 @@ const steps = [
   },
 ]
 
-export default function Process() {
+export default function Process({ index = '03' }: { index?: string }) {
   const sectionRef = useScrollReveal()
 
   return (
     <section id="process" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <SectionHeader
-          index="04"
+          index={index}
           label="How I Work"
-          title={<>My <span className="text-outline">process</span></>}
+          title={<>My process</>}
           subtitle="No surprises. A clear process from first message to final launch."
         />
 
@@ -52,7 +52,7 @@ export default function Process() {
                 <h3 className="font-display text-2xl font-bold text-cream">{step.title}</h3>
               </div>
               <div className="md:col-span-7">
-                <p className="text-cream/45 text-base leading-relaxed max-w-xl">{step.desc}</p>
+                <p className="text-cream/60 text-base leading-relaxed max-w-xl">{step.desc}</p>
               </div>
             </div>
           ))}

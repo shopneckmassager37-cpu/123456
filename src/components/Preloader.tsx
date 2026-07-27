@@ -80,7 +80,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
           }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-dot-pulse" />
-          <span className="text-cream/40 text-xs font-medium tracking-[0.28em] uppercase">
+          <span className="text-cream/60 text-xs font-medium tracking-[0.28em] uppercase">
             Ideas → Real Products
           </span>
         </div>

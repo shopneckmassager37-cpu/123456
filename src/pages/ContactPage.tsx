@@ -72,7 +72,7 @@ function WaysToReach() {
                 </div>
                 <span className="section-index text-cream/15 text-sm font-semibold group-hover:text-accent/40 transition-colors duration-300">0{i + 1}</span>
               </div>
-              <div className="text-cream/40 text-xs font-semibold uppercase tracking-[0.2em] mb-2">{w.label}</div>
+              <div className="text-cream/60 text-xs font-semibold uppercase tracking-[0.2em] mb-2">{w.label}</div>
               {w.href ? (
                 <a
                   href={w.href}
@@ -83,7 +83,7 @@ function WaysToReach() {
               ) : (
                 <div className="text-cream text-base md:text-lg font-semibold mb-1">{w.value}</div>
               )}
-              <div className="text-cream/30 text-xs">{w.sub}</div>
+              <div className="text-cream/55 text-xs">{w.sub}</div>
             </div>
           ))}
         </div>
@@ -98,12 +98,12 @@ function QuickFAQ() {
     <section className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <div className="flex items-center gap-3 mb-6 reveal">
-          <span className="section-index text-accent text-sm font-semibold tracking-widest">(07)</span>
+          <span className="section-index text-accent text-sm font-semibold tracking-widest">(02)</span>
           <span className="w-8 h-px bg-accent/40" />
-          <span className="text-cream/45 text-xs font-semibold tracking-[0.2em] uppercase">Quick Answers</span>
+          <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Quick Answers</span>
         </div>
         <h2 className="display-lg font-display font-bold text-cream reveal mb-14">
-          Before you <span className="text-outline">reach out</span>
+          Before you reach out
         </h2>
 
         <div className="border-t border-cream/[0.07]">
@@ -126,7 +126,7 @@ function QuickFAQ() {
         </div>
 
         <div className="mt-10 reveal">
-          <p className="text-cream/35 text-sm">
+          <p className="text-cream/55 text-sm">
             More questions?{' '}
             <Link to="/about" className="link-underline text-accent hover:text-cream transition-colors duration-200 font-medium">
               Check the full FAQ →
@@ -149,7 +149,7 @@ export default function ContactPage() {
         sub="Got a project in mind? Send a message or drop me an email directly. Free consultation, no obligations."
       />
       <WaysToReach />
-      <Contact />
+      <Contact index="01" />
       <QuickFAQ />
       <Footer />
     </>

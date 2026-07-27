@@ -54,13 +54,13 @@ const SKILLS = [
   },
 ]
 
-export default function Expertise() {
+export default function Expertise({ index = '01' }: { index?: string }) {
   const sectionRef = useScrollReveal()
 
   return (
     <section id="expertise" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
-        <SectionHeader index="01" label="What I Do" title={<>My <span className="text-outline">Expertise</span></>} />
+        <SectionHeader index={index} label="What I Do" title={<>My Expertise</>} />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
           {SKILLS.map(({ title, description, icon }, i) => (
@@ -78,10 +78,13 @@ export default function Expertise() {
               </div>
               <div>
                 <h3 className="text-cream font-semibold text-lg mb-2 leading-snug">{title}</h3>
-                <p className="text-cream/40 text-sm leading-relaxed">{description}</p>
+                <p className="text-cream/60 text-sm leading-relaxed">{description}</p>
               </div>
             </div>
           ))}
+          {/* 5 cards over a 2- or 3-column grid leaves one orphan slot; without
+              a filler the grid's hairline background shows through as a block. */}
+          <div className="hidden sm:block bg-[#0A0A0A]" aria-hidden="true" />
         </div>
       </div>
     </section>

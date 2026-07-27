@@ -32,7 +32,7 @@ export default function PageHero({ label, meta, lines, sub, dot = 'accent' }: Pa
             <span className="text-cream/50 text-xs font-medium tracking-[0.2em] uppercase">{label}</span>
           </div>
           {meta && (
-            <span className="text-cream/30 text-xs font-medium tracking-[0.2em] uppercase hidden sm:block section-index">
+            <span className="text-cream/55 text-xs font-medium tracking-[0.2em] uppercase hidden sm:block section-index">
               {meta}
             </span>
           )}
@@ -48,7 +48,7 @@ export default function PageHero({ label, meta, lines, sub, dot = 'accent' }: Pa
         </h1>
 
         {sub && (
-          <p className="mt-10 text-cream/45 text-lg md:text-xl max-w-xl leading-relaxed reveal">
+          <p className="mt-10 text-cream/60 text-lg md:text-xl max-w-xl leading-relaxed reveal">
             {sub}
           </p>
         )}

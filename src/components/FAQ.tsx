@@ -51,7 +51,7 @@ function AccordionItem({ faq, isOpen, onToggle }: {
         className="w-full px-2 md:px-4 py-6 flex items-center justify-between gap-4 text-left"
       >
         <span className="text-cream font-medium text-base sm:text-lg">{faq.q}</span>
-        <span className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-accent/50 text-accent rotate-45' : 'border-cream/15 text-cream/40'}`}>
+        <span className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-accent/50 text-accent rotate-45' : 'border-cream/15 text-cream/60'}`}>
           <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
@@ -69,17 +69,17 @@ function AccordionItem({ faq, isOpen, onToggle }: {
   )
 }
 
-export default function FAQ() {
+export default function FAQ({ index = '04' }: { index?: string }) {
   const [open, setOpen] = useState<number | null>(0)
   const sectionRef = useScrollReveal()
 
   return (
-    <section id="faq" className="relative bg-[#0A0A0A] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
+    <section id="faq" className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden" ref={sectionRef}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <SectionHeader
-          index="05"
+          index={index}
           label="FAQ"
-          title={<>Common <span className="text-outline">questions</span></>}
+          title={<>Common questions</>}
           subtitle="Everything you need to know before we start working together."
         />
 
