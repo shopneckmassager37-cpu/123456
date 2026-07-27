@@ -101,7 +101,7 @@ export default function WorkPage() {
           { value: 2,   suffix: '+', label: 'Years of experience',  desc: 'Building for real clients' },
           { value: 10,  suffix: '+', label: 'Projects shipped',      desc: 'Across web and mobile'     },
           { value: 100, suffix: '%', label: 'Client satisfaction',   desc: 'No project abandoned'      },
-          { value: 2,   suffix: '',  label: 'Live products',         desc: 'In production right now'   },
+          { value: 4,   suffix: '',  label: 'Live products',         desc: 'In production right now'   },
         ]}
       />
       <BigCTA

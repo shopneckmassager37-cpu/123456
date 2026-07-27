@@ -5,12 +5,16 @@ import Footer from '../components/Footer'
 import Marquee from '../components/Marquee'
 import MagneticButton from '../components/MagneticButton'
 
-const CHEFALEH_URL = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
-const EQ_URL       = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
+const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
+const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
+const NBJEWISH_URL  = 'https://image.thum.io/get/width/1280/crop/720/https://nbjewish.org'
+const KCT_URL       = 'https://image.thum.io/get/width/1280/crop/720/https://www.kosherculinarytravel.com/'
 
 const PROJECTS = [
   { img: CHEFALEH_URL, index: '01', name: 'Chefaleh', sub: 'Miami Catering', domain: 'chefaleh.com', url: 'https://www.chefaleh.com', tags: ['Luxury Brand', 'Web App', 'Live'] },
   { img: EQ_URL,       index: '02', name: 'EQ Counseling', sub: 'Mental Health Practice', domain: 'eqcounselingtesting.com', url: 'https://www.eqcounselingtesting.com', tags: ['Healthcare', 'Multi-page', 'Live'] },
+  { img: NBJEWISH_URL, index: '03', name: 'NB Jewish', sub: 'Community Organization', domain: 'nbjewish.org', url: 'https://nbjewish.org', tags: ['Community', 'Nonprofit', 'Live'] },
+  { img: KCT_URL,      index: '04', name: 'Kosher Culinary Travel', sub: 'Food & Travel', domain: 'kosherculinarytravel.com', url: 'https://www.kosherculinarytravel.com/', tags: ['Travel', 'Culinary', 'Live'] },
 ]
 
 const SERVICES_PREVIEW = [
@@ -30,7 +34,7 @@ const APPROACH = [
 const STATS = [
   { value: 2,  suffix: '+',  label: 'Years building'   },
   { value: 10, suffix: '+',  label: 'Projects shipped'  },
-  { value: 2,  suffix: '',   label: 'Live products'     },
+  { value: 4,  suffix: '',   label: 'Live products'     },
   { value: 24, suffix: 'h',  label: 'Response time'     },
 ]
 

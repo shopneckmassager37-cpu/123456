@@ -3,6 +3,8 @@ import SectionHeader from './SectionHeader'
 
 const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
+const NBJEWISH_URL  = 'https://image.thum.io/get/width/1280/crop/720/https://nbjewish.org'
+const KCT_URL       = 'https://image.thum.io/get/width/1280/crop/720/https://www.kosherculinarytravel.com/'
 
 const PROJECTS = [
   {
@@ -25,6 +27,28 @@ const PROJECTS = [
     desc: "A professional mental health services website for Dr. Ronit Navon's practice in Orlando. Clean, trustworthy design with therapist profiles, service pages, booking flow, and insurance/rates info — built to convert visitors into consultations.",
     tags: ['React', 'Healthcare', 'Multi-page', 'Booking Flow', 'Live'],
     url: 'https://www.eqcounselingtesting.com',
+    bgGradient: '',
+  },
+  {
+    id: 'nbjewish',
+    screenshotUrl: NBJEWISH_URL,
+    category: 'Web Development',
+    domain: 'nbjewish.org',
+    name: 'NB Jewish — Community Organization',
+    desc: 'A website for a Jewish community organization, built to showcase events, programs, and resources and to make it easy for the community to stay informed and get involved.',
+    tags: ['React', 'Community', 'Nonprofit', 'Responsive', 'Live'],
+    url: 'https://nbjewish.org',
+    bgGradient: '',
+  },
+  {
+    id: 'kosher-culinary-travel',
+    screenshotUrl: KCT_URL,
+    category: 'Web Development',
+    domain: 'kosherculinarytravel.com',
+    name: 'Kosher Culinary Travel',
+    desc: 'A kosher food and culinary travel website, showcasing curated kosher travel experiences and culinary journeys for travelers seeking kosher dining on the road.',
+    tags: ['React', 'Travel', 'Food & Culinary', 'Responsive', 'Live'],
+    url: 'https://www.kosherculinarytravel.com/',
     bgGradient: '',
   },
 ]
