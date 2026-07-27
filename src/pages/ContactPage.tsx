@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 const QUICK_ANSWERS = [
   {
     q: 'How much does a project cost?',
-    a: 'Every project is different. A simple landing page starts from a few hundred dollars; a full web app or mobile product varies based on scope. Tell me what you need and I\'ll give you an honest quote — no inflated agency pricing.',
+    a: 'Every project is different. A simple landing page starts from a few hundred dollars; a full website or web app varies based on scope. Tell me what you need and I\'ll give you an honest quote — no inflated agency pricing.',
   },
   {
     q: 'How quickly can we start?',

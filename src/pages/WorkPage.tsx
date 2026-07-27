@@ -99,7 +99,7 @@ export default function WorkPage() {
       <StatsBand
         stats={[
           { value: 2,   suffix: '+', label: 'Years of experience',  desc: 'Building for real clients' },
-          { value: 10,  suffix: '+', label: 'Projects shipped',      desc: 'Across web and mobile'     },
+          { value: 10,  suffix: '+', label: 'Projects shipped',      desc: 'Websites and web apps'     },
           { value: 100, suffix: '%', label: 'Client satisfaction',   desc: 'No project abandoned'      },
           { value: 4,   suffix: '',  label: 'Live products',         desc: 'In production right now'   },
         ]}

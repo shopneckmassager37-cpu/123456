@@ -11,8 +11,8 @@ type FormState = {
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const SUBJECTS = [
-  { label: '🌐 Web App',    value: 'Web Development Project' },
-  { label: '📱 Mobile App', value: 'Mobile App Development'  },
+  { label: '🌐 Website',    value: 'Web Development Project' },
+  { label: '⚡ Web App',    value: 'Web App Development'      },
   { label: '💬 Other',      value: 'Other'                   },
 ]
 
@@ -85,7 +85,7 @@ export default function Contact() {
             <span className="text-outline">great together.</span>
           </h2>
           <p className="text-cream/40 text-lg leading-relaxed max-w-xl mx-auto mb-8">
-            Have a project in mind? Whether it's a web app, a mobile product,
+            Have a project in mind? Whether it's a simple website, a full web app,
             or an idea you want to bring to life — I'd love to hear about it.
           </p>
 

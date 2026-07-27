@@ -11,7 +11,6 @@ import Footer from '../components/Footer'
 const CAPABILITIES = [
   { name: 'Websites',        icon: '🌐' },
   { name: 'Web Apps',        icon: '⚡' },
-  { name: 'Mobile Apps',     icon: '📱' },
   { name: 'UI / UX Design',  icon: '🎨' },
   { name: 'Online Stores',   icon: '🛒' },
   { name: 'Booking Systems', icon: '📅' },
@@ -121,7 +120,7 @@ export default function WhatIDoPage() {
         label="Services & Expertise"
         meta="What I Do"
         lines={['What I do,', <span key="l2">start to <span className="gradient-text">finish.</span></span>]}
-        sub="Websites, web apps, and mobile apps — designed, built, and launched by one person who owns the whole thing."
+        sub="Websites and web apps — designed, built, and launched by one person who owns the whole thing."
       />
       <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
         <Marquee items={['Design', 'Build', 'Launch', 'Support']} />

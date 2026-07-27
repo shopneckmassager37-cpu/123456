@@ -19,7 +19,6 @@ const PROJECTS = [
 
 const SERVICES_PREVIEW = [
   { title: 'Websites & Web Apps', desc: 'Fast, beautiful, fully responsive. From landing pages to complex web applications.' },
-  { title: 'Mobile Apps',         desc: 'iPhone & Android apps built once, deployed everywhere. App Store ready.' },
   { title: 'Design & Interface',  desc: 'Clean, modern UI/UX that looks premium and feels natural on every device.' },
   { title: 'Launch & Support',    desc: 'Deployment, domain setup, speed optimisation — and ongoing support after launch.' },
 ]
@@ -362,7 +361,7 @@ export default function HomePage() {
     <>
       <Hero />
       <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
-        <Marquee items={['Websites', 'Mobile Apps', 'UI Design', 'Web Apps', 'Launch']} />
+        <Marquee items={['Websites', 'UI Design', 'Web Apps', 'Launch']} />
       </div>
       <Statement />
       <FeaturedWork />

@@ -47,7 +47,7 @@ const STORY = [
   'I work remotely and move fast. Most projects are live within 1–2 weeks, and I stay in close contact with every client throughout the process.',
 ]
 
-const SKILLS = ['Web Apps', 'Mobile Apps', 'UI Design', 'Payments', 'Databases', 'Deployment']
+const SKILLS = ['Web Apps', 'UI Design', 'Payments', 'Databases', 'Deployment']
 
 function AboutDaniel() {
   const ref = useScrollReveal<HTMLElement>()
