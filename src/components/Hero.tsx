@@ -62,7 +62,7 @@ export default function Hero() {
             <span className="text-cream/50 text-xs font-medium tracking-[0.2em] uppercase">Available for new projects</span>
           </div>
           <span className="text-cream/55 text-xs font-medium tracking-[0.2em] uppercase hidden sm:block section-index">
-            Full-Stack Developer
+            React Websites & Web Apps
           </span>
         </div>
 
@@ -71,13 +71,13 @@ export default function Hero() {
           className="display-hero font-display font-bold text-cream"
           style={{ transform: `translateY(${offset * -0.04}px)` }}
         >
-          {line('I turn ideas', 150)}
+          {line('Websites', 150)}
           <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
             <span
               className="block transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{ transform: mounted ? 'translateY(0)' : 'translateY(110%)', transitionDelay: '260ms' }}
             >
-              into <span className="gradient-text">real products.</span>
+              & <span className="gradient-text">web apps.</span>
             </span>
           </span>
         </h1>
@@ -92,8 +92,8 @@ export default function Hero() {
               transitionDelay: '450ms',
             }}
           >
-            I build websites and web apps — from the first idea to the finished product,
-            live and ready to use. Fast, clean, and exactly how you imagined it.
+            Daniel is a full-stack developer who designs, builds, and launches custom
+            websites and web apps with React, Tailwind CSS, Node.js, and clean product thinking.
           </p>
 
           <div

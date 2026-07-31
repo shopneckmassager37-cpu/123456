@@ -1,0 +1,19 @@
+# DANDEV
+
+DANDEV is Daniel's full-stack development portfolio and service site.
+
+## About
+
+Daniel builds custom websites and web apps from idea to launch. Services include UI design, React development, integrations, deployment, performance work, SEO-ready structure, and ongoing support.
+
+## Important Pages
+
+- Home: https://www.dandev.live/
+- Services: https://www.dandev.live/what-i-do
+- Work: https://www.dandev.live/work
+- About: https://www.dandev.live/about
+- Contact: https://www.dandev.live/contact
+
+## Contact
+
+Email: danielgitlin2011@gmail.com

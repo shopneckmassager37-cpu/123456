@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Marquee from '../components/Marquee'
 import MagneticButton from '../components/MagneticButton'
 import ProjectImage from '../components/ProjectImage'
+import FAQ from '../components/FAQ'
 
 const CHEFALEH_URL  = 'https://media.base44.com/images/public/69c17515a2c757d1070710f1/536b80201_2026-05-27203012.png'
 const EQ_URL        = 'https://image.thum.io/get/width/1280/crop/720/https://eqcounselingtesting.vercel.app/'
@@ -19,9 +20,9 @@ const PROJECTS = [
 ]
 
 const SERVICES_PREVIEW = [
-  { title: 'Websites & Web Apps', desc: 'Fast, beautiful, fully responsive. From landing pages to complex web applications.' },
-  { title: 'Design & Interface',  desc: 'Clean, modern UI/UX that looks premium and feels natural on every device.' },
-  { title: 'Launch & Support',    desc: 'Deployment, domain setup, speed optimisation — and ongoing support after launch.' },
+  { title: 'Websites & Web Apps', desc: 'Custom websites, landing pages, dashboards, booking flows, and web apps built with React and a fast, SEO-ready foundation.' },
+  { title: 'Design & Interface',  desc: 'Clean UI/UX design for small businesses, startups, service brands, and digital products that need to feel premium on every device.' },
+  { title: 'Launch & Support',    desc: 'Deployment, domain setup, performance optimization, technical SEO checks, and ongoing support after your site or app goes live.' },
 ]
 
 const APPROACH = [
@@ -36,6 +37,21 @@ const STATS = [
   { value: 10, suffix: '+',  label: 'Projects shipped'  },
   { value: 4,  suffix: '',   label: 'Live products'     },
   { value: 24, suffix: 'h',  label: 'Response time'     },
+]
+
+const TRUST_SIGNALS = [
+  {
+    title: 'Full-stack ownership',
+    desc: 'One developer handles product planning, UI design, frontend, backend integrations, deployment, and launch QA, so your website or web app moves quickly without handoffs.',
+  },
+  {
+    title: 'Proven live work',
+    desc: 'The portfolio includes live client projects in catering, healthcare, nonprofit community work, food, and travel, with public links you can open and inspect.',
+  },
+  {
+    title: 'Modern SEO foundation',
+    desc: 'Projects are built with responsive layouts, accessible image alt text, friendly URLs, sitemap support, structured data, metadata, and performance-minded React code.',
+  },
 ]
 
 function useRevealSection() {
@@ -111,7 +127,7 @@ function Statement() {
           <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">The idea</span>
         </div>
         <ScrollLitText
-          text="I design and build digital products from the first idea to the finished thing — live, fast, and exactly how you pictured it. One person, full ownership, zero handoffs."
+          text="I design and build custom websites and web apps from the first idea to the finished thing — live, fast, and exactly how you pictured it. One full-stack developer, full ownership, zero handoffs."
           className="display-lg font-display font-bold text-cream max-w-5xl leading-[1.08]"
         />
       </div>
@@ -133,7 +149,7 @@ function FeaturedWork() {
               <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Featured Work</span>
             </div>
             <h2 className="display-lg font-display font-bold text-cream reveal">
-              Selected <span className="text-outline">projects</span>
+              Client website <span className="text-outline">projects</span>
             </h2>
           </div>
           <Link
@@ -211,10 +227,10 @@ function Approach() {
                 <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">How I work</span>
               </div>
               <h2 className="display-lg font-display font-bold text-cream reveal mb-8">
-                A simple way <br />to build.
+                A full-stack <br />build process.
               </h2>
               <p className="text-cream/60 text-lg leading-relaxed max-w-sm reveal mb-10">
-                No agencies, no endless meetings. Four clear steps from your idea to a finished, live product.
+                No agencies, no endless meetings. Four clear steps from your idea to a finished, live website or web app.
               </p>
               <MagneticButton to="/about" variant="outline">The full process →</MagneticButton>
             </div>
@@ -261,7 +277,7 @@ function ServicesStrip() {
               <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Services</span>
             </div>
             <h2 className="display-lg font-display font-bold text-cream reveal">
-              Everything, one roof.
+              Full-stack websites, one roof.
             </h2>
           </div>
           <Link to="/what-i-do" className="reveal flex-shrink-0 link-underline inline-flex items-center gap-2 text-cream/60 hover:text-cream text-sm font-medium transition-colors duration-200">
@@ -283,6 +299,50 @@ function ServicesStrip() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+function TrustSignals() {
+  const ref = useRevealSection()
+  return (
+    <section className="relative bg-[#0D0D0D] py-28 md:py-36 overflow-hidden border-t border-cream/[0.07]" ref={ref}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+          <div>
+            <div className="flex items-center gap-3 mb-6 reveal">
+              <span className="section-index text-accent text-sm font-semibold tracking-widest">(06)</span>
+              <span className="w-8 h-px bg-accent/40" />
+              <span className="text-cream/60 text-xs font-semibold tracking-[0.2em] uppercase">Trust & Authority</span>
+            </div>
+            <h2 className="display-lg font-display font-bold text-cream reveal">
+              Why clients hire Daniel.
+            </h2>
+          </div>
+          <p className="reveal text-cream/60 text-base md:text-lg leading-relaxed max-w-xl">
+            DANDEV is a focused full-stack development service for founders, local businesses, and teams that need a polished website or web app built fast, launched cleanly, and owned completely by the client.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/[0.07] border-y border-cream/[0.07]">
+          {TRUST_SIGNALS.map((signal, i) => (
+            <div
+              key={signal.title}
+              className={`reveal reveal-d${i + 1} bg-[#0A0A0A] p-8 min-h-[260px] flex flex-col justify-between hover:bg-surface transition-colors duration-300`}
+            >
+              <span className="section-index text-cream/15 text-sm font-semibold">0{i + 1}</span>
+              <div>
+                <h3 className="font-display text-xl font-bold text-cream mb-3">{signal.title}</h3>
+                <p className="text-cream/60 text-sm leading-relaxed">{signal.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="reveal mt-8 text-cream/45 text-sm leading-relaxed">
+          Last updated: July 31, 2026. Services include website development, web app development, React development, UI design, deployment, performance optimization, and launch support.
+        </p>
       </div>
     </section>
   )
@@ -378,6 +438,8 @@ export default function HomePage() {
       <Approach />
       <ServicesStrip />
       <Stats />
+      <TrustSignals />
+      <FAQ index="07" />
       <div className="py-8 border-y border-cream/[0.07] bg-[#0A0A0A]">
         <Marquee items={["Let's build", 'Something great', 'Together']} reverse speed="slow" />
       </div>
